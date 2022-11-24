@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{21E74DAE-6AA4-4426-A350-0D2E6467DD19}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 		.stylecop.json = .stylecop.json
 		Directory.Build.props = Directory.Build.props
 		docker-compose.yml = docker-compose.yml
