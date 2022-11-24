@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{21E74DAE-6AA4-4426-A350-0D2E6467DD19}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.stylecop.json = .stylecop.json
+		Directory.Build.props = Directory.Build.props
+		docker-compose.yml = docker-compose.yml
+		Linter.targets = Linter.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{79E58AD4-9E16-478D-B91D-BC455B6753BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{951CF25A-4CFB-481A-858A-0E047417F611}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusScheduler.IntegrationTests", "test\EasyDesk.RebusScheduler.IntegrationTests\EasyDesk.RebusScheduler.IntegrationTests.csproj", "{460C4973-D4B9-47D0-A453-B68C4C1101B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusScheduler.Core", "src\EasyDesk.RebusScheduler.Core\EasyDesk.RebusScheduler.Core.csproj", "{4EA06FA8-719A-4EB6-B403-D97FE96C51CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusScheduler.RabbitMqPostgres", "src\EasyDesk.RebusScheduler.RabbitMqPostgres\EasyDesk.RebusScheduler.RabbitMqPostgres.csproj", "{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{460C4973-D4B9-47D0-A453-B68C4C1101B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460C4973-D4B9-47D0-A453-B68C4C1101B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460C4973-D4B9-47D0-A453-B68C4C1101B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460C4973-D4B9-47D0-A453-B68C4C1101B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{460C4973-D4B9-47D0-A453-B68C4C1101B3} = {951CF25A-4CFB-481A-858A-0E047417F611}
+		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD76ADBB-80B4-48F7-85E8-09077088D99A}
+	EndGlobalSection
+EndGlobal
