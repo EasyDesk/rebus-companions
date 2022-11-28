@@ -31,9 +31,10 @@ jobs:
     with:
       dockerfile: ${{ matrix.dockerfile }}
       image-name: ${{ matrix.image-name }}
-      registry-url: localhost:5000
+      docker-username: easydesk
+      registry-url: docker.io
     secrets:
-      docker-password: ${{ secrets.docker-password }}
+      docker-password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
   release:
     name: GitHub Release
