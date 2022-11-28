@@ -1,0 +1,51 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "*"
+
+env:
+  ARTIFACT_NAME: build-artifacts
+
+jobs:
+  build:
+    name: Build Scheduler
+    uses: EasyDesk/workflows/.github/workflows/build.yml@v3
+    with:
+      dotnet-version: 7.x
+      warnings-as-errors: true
+      integration-tests-project: test/EasyDesk.RebusScheduler.IntegrationTests
+      artifact-name: ${{ env.ARTIFACT_NAME }}
+      projects: |
+        src/EasyDesk.RebusScheduler.RabbitMqPostgres
+
+  docker-build:
+    name: Build Docker Images
+    needs: [build]
+    strategy:
+      matrix:
+        include:
+          - dockerfile: src/EasyDesk.RebusScheduler.RabbitMqPostgres/Dockerfile
+            image-name: rebus-scheduler-rabbitmq-postgres
+    uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v3
+    with:
+      dockerfile: ${{ matrix.dockerfile }}
+      image-name: ${{ matrix.image-name }}
+      registry-url: localhost:5000
+    secrets:
+      docker-password: ${{ secrets.docker-password }}
+
+  release:
+    name: GitHub Release
+    needs: [build]
+    if: needs.build.outputs.should-release == 'true'
+    uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v3
+    with:
+      version: ${{ needs.build.outputs.version }}
+      is-prerelease: ${{ needs.build.outputs.is-prerelease }}
+      artifact-name: ${{ env.ARTIFACT_NAME }}
+      release-prefix: EasyDesk.RebusScheduler

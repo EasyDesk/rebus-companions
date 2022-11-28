@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{21E74DAE
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.stylecop.json = .stylecop.json
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		Directory.Build.props = Directory.Build.props
 		docker-compose.yml = docker-compose.yml
 		Linter.targets = Linter.targets
