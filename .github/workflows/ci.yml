@@ -8,9 +8,6 @@ on:
     tags:
       - "*"
 
-env:
-  ARTIFACT_NAME: build-artifacts
-
 jobs:
   build:
     name: Build Scheduler
@@ -19,7 +16,6 @@ jobs:
       dotnet-version: 7.x
       warnings-as-errors: true
       integration-tests-project: test/EasyDesk.RebusScheduler.IntegrationTests
-      artifact-name: ${{ env.ARTIFACT_NAME }}
       projects: |
         src/EasyDesk.RebusScheduler.RabbitMqPostgres
 
@@ -47,5 +43,4 @@ jobs:
     with:
       version: ${{ needs.build.outputs.version }}
       is-prerelease: ${{ needs.build.outputs.is-prerelease }}
-      artifact-name: ${{ env.ARTIFACT_NAME }}
       release-prefix: EasyDesk.RebusScheduler
