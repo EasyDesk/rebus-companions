@@ -3,6 +3,8 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["Directory.Build.props", "."]
+COPY ["Linter.targets", "."]
 COPY ["src/EasyDesk.RebusScheduler.RabbitMqPostgres/EasyDesk.RebusScheduler.RabbitMqPostgres.csproj", "src/EasyDesk.RebusScheduler.RabbitMqPostgres/"]
 COPY ["src/EasyDesk.RebusScheduler.Core/EasyDesk.RebusScheduler.Core.csproj", "src/EasyDesk.RebusScheduler.Core/"]
 RUN dotnet restore "src/EasyDesk.RebusScheduler.RabbitMqPostgres/EasyDesk.RebusScheduler.RabbitMqPostgres.csproj"
