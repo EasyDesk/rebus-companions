@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build Scheduler
-    uses: EasyDesk/workflows/.github/workflows/build.yml@v3
+    uses: EasyDesk/workflows/.github/workflows/build.yml@v4
     with:
       dotnet-version: 7.x
       warnings-as-errors: true
@@ -27,7 +27,7 @@ jobs:
         include:
           - dockerfile: src/EasyDesk.RebusScheduler.RabbitMqPostgres/Dockerfile
             image-name: rebus-scheduler-rabbitmq-postgres
-    uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v3
+    uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v4
     with:
       dockerfile: ${{ matrix.dockerfile }}
       image-name: ${{ matrix.image-name }}
@@ -40,8 +40,6 @@ jobs:
     name: GitHub Release
     needs: [build]
     if: needs.build.outputs.should-release == 'true'
-    uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v3
+    uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v4
     with:
-      version: ${{ needs.build.outputs.version }}
-      is-prerelease: ${{ needs.build.outputs.is-prerelease }}
       release-prefix: EasyDesk.RebusScheduler
