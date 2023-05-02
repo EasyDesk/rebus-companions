@@ -1,6 +1,5 @@
-﻿using EasyDesk.CleanArchitecture.Application.Cqrs.Commands;
-using EasyDesk.CleanArchitecture.Application.Messaging;
-using EasyDesk.CleanArchitecture.Testing.Integration.Rebus;
+﻿using EasyDesk.CleanArchitecture.Application.Cqrs.Async;
+using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
 using NodaTime;
 
 namespace EasyDesk.RebusScheduler.IntegrationTests;
@@ -12,8 +11,8 @@ public class RabbitMqPostgresTests : IClassFixture<RebusSchedulerFixture>
     private const string SenderAddress = "sender";
     private const string ReceiverAddress = "receiver";
 
-    private readonly RebusTestHelper _sender;
-    private readonly RebusTestHelper _receiver;
+    private readonly ITestBus _sender;
+    private readonly ITestBus _receiver;
 
     public RabbitMqPostgresTests(RebusSchedulerFixture schedulerFixture)
     {

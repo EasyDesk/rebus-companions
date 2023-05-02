@@ -1,15 +1,15 @@
-﻿using EasyDesk.Tools;
+﻿using EasyDesk.Commons;
 using Rebus.Activation;
 using Rebus.Bus;
 using Rebus.Config;
 using Rebus.Timeouts;
-using static EasyDesk.Tools.StaticImports;
+using static EasyDesk.Commons.StaticImports;
 
 namespace EasyDesk.RebusScheduler.Core;
 
 public delegate void TimeoutManagerConfiguration(StandardConfigurer<ITimeoutManager> timeouts);
 
-public class Scheduler : IDisposable
+public sealed class Scheduler : IDisposable
 {
     private readonly Func<IBus> _starter;
     private Option<IBus> _bus;

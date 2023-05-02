@@ -1,7 +1,7 @@
 ﻿using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
-using EasyDesk.CleanArchitecture.Testing.Integration.Rebus;
+using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
 using EasyDesk.RebusScheduler.Core;
 using NodaTime;
 using Rebus.Config;
@@ -47,9 +47,9 @@ public class RebusSchedulerFixture : IAsyncLifetime
         _scheduler = new Scheduler(Endpoint, _defaultConfiguration, _timeoutManager);
     }
 
-    public RebusTestHelper CreateBus(string endpoint, string defaultDestination, Duration? defaultTimeout = null)
+    public RebusTestBus CreateBus(string endpoint, string defaultDestination, Duration? defaultTimeout = null)
     {
-        return new RebusTestHelper(
+        return new RebusTestBus(
             rebus =>
             {
                 _defaultConfiguration.Apply(rebus, endpoint);
