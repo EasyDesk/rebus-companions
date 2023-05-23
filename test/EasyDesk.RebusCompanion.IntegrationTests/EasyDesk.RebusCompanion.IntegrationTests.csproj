@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\EasyDesk.RebusScheduler.RabbitMqPostgres\EasyDesk.RebusScheduler.RabbitMqPostgres.csproj" />
+    <ProjectReference Include="..\..\src\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler.csproj" />
   </ItemGroup>
 
 </Project>

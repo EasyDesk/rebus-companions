@@ -5,7 +5,7 @@ using Rebus.Config;
 using Rebus.Timeouts;
 using static EasyDesk.Commons.StaticImports;
 
-namespace EasyDesk.RebusScheduler.Core;
+namespace EasyDesk.RebusCompanion.Core;
 
 public delegate void TimeoutManagerConfiguration(StandardConfigurer<ITimeoutManager> timeouts);
 

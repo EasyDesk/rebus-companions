@@ -15,9 +15,9 @@ jobs:
     with:
       dotnet-version: 7.x
       warnings-as-errors: true
-      integration-tests-project: test/EasyDesk.RebusScheduler.IntegrationTests
+      integration-tests-project: test/EasyDesk.RebusCompanion.IntegrationTests
       projects: |
-        src/EasyDesk.RebusScheduler.RabbitMqPostgres
+        src/EasyDesk.RebusCompanion.RabbitMqPostgresScheduler
 
   docker-build:
     name: Build Docker Images
@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - dockerfile: src/EasyDesk.RebusScheduler.RabbitMqPostgres/Dockerfile
+          - dockerfile: src/EasyDesk.RebusCompanion.RabbitMqPostgresScheduler/Dockerfile
             image-name: rebus-scheduler-rabbitmq-postgres
     uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v4
     with:
@@ -42,4 +42,4 @@ jobs:
     if: needs.build.outputs.should-release == 'true'
     uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v4
     with:
-      release-prefix: EasyDesk.RebusScheduler
+      release-prefix: EasyDesk.RebusCompanion

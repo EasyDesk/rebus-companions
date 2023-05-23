@@ -2,15 +2,15 @@
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
 using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
-using EasyDesk.RebusScheduler.Core;
+using EasyDesk.RebusCompanion.Core;
 using NodaTime;
 using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using Rebus.Timeouts;
 
-namespace EasyDesk.RebusScheduler.IntegrationTests;
+namespace EasyDesk.RebusCompanion.IntegrationTests;
 
-public class RebusSchedulerFixture : IAsyncLifetime
+public class RebusCompanionFixture : IAsyncLifetime
 {
     public const string Endpoint = "test-timeout-manager";
 
@@ -22,7 +22,7 @@ public class RebusSchedulerFixture : IAsyncLifetime
     private readonly TimeoutManagerConfiguration _timeoutManager;
     private readonly Scheduler _scheduler;
 
-    public RebusSchedulerFixture()
+    public RebusCompanionFixture()
     {
         _rabbitMqContainer = new TestcontainersBuilder<RabbitMqTestcontainer>()
             .WithMessageBroker(new RabbitMqTestcontainerConfiguration

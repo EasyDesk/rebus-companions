@@ -1,4 +1,4 @@
-﻿using EasyDesk.RebusScheduler.Core;
+﻿using EasyDesk.RebusCompanion.Core;
 using Microsoft.Extensions.Configuration;
 using Rebus.Config;
 

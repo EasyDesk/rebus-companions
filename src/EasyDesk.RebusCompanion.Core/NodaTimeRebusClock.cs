@@ -1,7 +1,7 @@
 ﻿using NodaTime;
 using Rebus.Time;
 
-namespace EasyDesk.RebusScheduler.Core;
+namespace EasyDesk.RebusCompanion.Core;
 
 public class NodaTimeRebusClock : IRebusTime
 {
