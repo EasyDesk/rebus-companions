@@ -26,8 +26,4 @@
     <ProjectReference Include="..\..\src\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ErrorManagers\" />
-  </ItemGroup>
-
 </Project>
