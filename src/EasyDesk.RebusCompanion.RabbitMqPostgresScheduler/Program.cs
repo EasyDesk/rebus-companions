@@ -1,4 +1,5 @@
-﻿using EasyDesk.RebusCompanion.Core;
+﻿using EasyDesk.RebusCompanion.Core.Config;
+using EasyDesk.RebusCompanion.Core.Scheduler;
 using Microsoft.Extensions.Configuration;
 using Rebus.Config;
 
@@ -13,7 +14,7 @@ var endpoint = configuration.GetRequiredSection("RebusEndpoint").Get<string>();
 var rebusConfig = new RebusConfiguration()
     .WithTransport((t, e) => t.UseRabbitMq(rabbitMqConnection, e));
 
-var scheduler = new Scheduler(
+var scheduler = new RebusScheduler(
     endpoint,
     rebusConfig,
     t => t.StoreInPostgres(postgresConnection, "timeouts"));

@@ -2,9 +2,10 @@
 using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
 using NodaTime;
 
-namespace EasyDesk.RebusCompanion.IntegrationTests;
+namespace EasyDesk.RebusCompanion.IntegrationTests.Schedulers;
 
-public class RabbitMqPostgresSchedulerTests : IClassFixture<RebusCompanionFixture>
+public abstract class AbstractSchedulerTests<T> : IClassFixture<T>
+    where T : RebusSchedulerFixture
 {
     private record Command(int Value) : IMessage, ICommand;
 
@@ -14,10 +15,10 @@ public class RabbitMqPostgresSchedulerTests : IClassFixture<RebusCompanionFixtur
     private readonly ITestBus _sender;
     private readonly ITestBus _receiver;
 
-    public RabbitMqPostgresSchedulerTests(RebusCompanionFixture schedulerFixture)
+    public AbstractSchedulerTests(T fixture)
     {
-        _sender = schedulerFixture.CreateBus(SenderAddress, ReceiverAddress);
-        _receiver = schedulerFixture.CreateBus(ReceiverAddress, SenderAddress);
+        _sender = fixture.CreateBus(SenderAddress, ReceiverAddress);
+        _receiver = fixture.CreateBus(ReceiverAddress, SenderAddress);
     }
 
     [Fact]

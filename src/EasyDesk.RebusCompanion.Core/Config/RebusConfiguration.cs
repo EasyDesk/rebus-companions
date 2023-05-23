@@ -3,7 +3,7 @@ using Rebus.Config;
 using Rebus.Time;
 using Rebus.Transport;
 
-namespace EasyDesk.RebusCompanion.Core;
+namespace EasyDesk.RebusCompanion.Core.Config;
 
 public class RebusConfiguration
 {
