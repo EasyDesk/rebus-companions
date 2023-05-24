@@ -18,6 +18,7 @@ jobs:
       integration-tests-project: test/EasyDesk.RebusCompanion.IntegrationTests
       projects: |
         src/EasyDesk.RebusCompanion.RabbitMqPostgresScheduler
+        src/EasyDesk.RebusCompanion.RabbitMqSqlServerScheduler
 
   docker-build:
     name: Build Docker Images
@@ -27,6 +28,8 @@ jobs:
         include:
           - dockerfile: src/EasyDesk.RebusCompanion.RabbitMqPostgresScheduler/Dockerfile
             image-name: rebus-scheduler-rabbitmq-postgres
+          - dockerfile: src/EasyDesk.RebusCompanion.RabbitMqSqlServerScheduler/Dockerfile
+            image-name: rebus-scheduler-rabbitmq-sqlserver
     uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v4
     with:
       dockerfile: ${{ matrix.dockerfile }}

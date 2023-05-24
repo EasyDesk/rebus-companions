@@ -24,6 +24,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusCompanion.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusCompanion.RabbitMqPostgresScheduler", "src\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler\EasyDesk.RebusCompanion.RabbitMqPostgresScheduler.csproj", "{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusCompanion.RabbitMqSqlServerScheduler", "src\EasyDesk.RebusCompanion.RabbitMqSqlServerScheduler\EasyDesk.RebusCompanion.RabbitMqSqlServerScheduler.csproj", "{A9E41B15-367D-4235-B62C-F7B636966EEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "schedulers", "schedulers", "{47599FAA-152C-45F2-B190-87DC60A12F8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "errors-managers", "errors-managers", "{B75B6726-338D-4700-87F8-7905C3B0D989}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +48,10 @@ Global
 		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,7 +59,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{460C4973-D4B9-47D0-A453-B68C4C1101B3} = {951CF25A-4CFB-481A-858A-0E047417F611}
 		{4EA06FA8-719A-4EB6-B403-D97FE96C51CF} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
-		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
+		{EB8C84C4-AFFE-4D1B-8293-86B3A12420E9} = {47599FAA-152C-45F2-B190-87DC60A12F8E}
+		{A9E41B15-367D-4235-B62C-F7B636966EEE} = {47599FAA-152C-45F2-B190-87DC60A12F8E}
+		{47599FAA-152C-45F2-B190-87DC60A12F8E} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
+		{B75B6726-338D-4700-87F8-7905C3B0D989} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD76ADBB-80B4-48F7-85E8-09077088D99A}
