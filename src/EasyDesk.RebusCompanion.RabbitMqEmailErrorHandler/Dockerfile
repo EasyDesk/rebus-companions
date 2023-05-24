@@ -7,6 +7,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
 COPY ["src/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler.csproj", "src/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler/"]
+COPY ["src/EasyDesk.RebusCompanion.Core/EasyDesk.RebusCompanion.Core.csproj", "src/EasyDesk.RebusCompanion.Core/"]
+COPY ["src/EasyDesk.RebusCompanion.Email/EasyDesk.RebusCompanion.Email.csproj", "src/EasyDesk.RebusCompanion.Email/"]
 RUN dotnet restore "src/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler.csproj"
 COPY . .
 WORKDIR "/src/src/EasyDesk.RebusCompanion.RabbitMqEmailErrorHandler"
