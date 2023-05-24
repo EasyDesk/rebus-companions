@@ -19,4 +19,4 @@ function replace {
   done
 }
 
-replace RabbitMqPostgres RabbitMqPostgresScheduler
+replace RebusCompanion RebusCompanions

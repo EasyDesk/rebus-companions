@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EasyDesk.RebusCompanions.RabbitMqSqlServerScheduler": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
