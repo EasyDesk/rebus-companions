@@ -9,12 +9,14 @@ public delegate void TimeoutManagerConfiguration(StandardConfigurer<ITimeoutMana
 
 public sealed class RebusScheduler : RebusProcess
 {
+    public const string DefaultEndpoint = "scheduler";
+
     private readonly TimeoutManagerConfiguration _timeoutManagerConfiguration;
 
     public RebusScheduler(
-        string endpoint,
         RebusConfiguration defaultConfiguration,
-        TimeoutManagerConfiguration timeoutManagerConfiguration) : base(
+        TimeoutManagerConfiguration timeoutManagerConfiguration,
+        string endpoint = DefaultEndpoint) : base(
             new BuiltinHandlerActivator(),
             endpoint,
             defaultConfiguration)

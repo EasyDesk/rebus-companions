@@ -20,7 +20,7 @@ public abstract class RebusSchedulerFixture : IAsyncLifetime
     {
         _defaultConfiguration = new RebusConfiguration()
             .WithTransport(ConfigureTransport);
-        _scheduler = new RebusScheduler(Endpoint, _defaultConfiguration, ConfigureTimeouts);
+        _scheduler = new RebusScheduler(_defaultConfiguration, ConfigureTimeouts, Endpoint);
     }
 
     protected abstract void ConfigureTransport(StandardConfigurer<ITransport> transport, string endpoint);

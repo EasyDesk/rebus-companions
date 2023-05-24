@@ -7,7 +7,7 @@ namespace EasyDesk.RebusCompanion.IntegrationTests.Schedulers;
 public abstract class AbstractSchedulerTests<T> : IClassFixture<T>
     where T : RebusSchedulerFixture
 {
-    private record Command(int Value) : IMessage, ICommand;
+    private record Command(int Value) : ICommand;
 
     private const string SenderAddress = "sender";
     private const string ReceiverAddress = "receiver";

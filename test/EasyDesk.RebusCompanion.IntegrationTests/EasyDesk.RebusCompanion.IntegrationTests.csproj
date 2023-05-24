@@ -29,8 +29,4 @@
     <ProjectReference Include="..\..\src\EasyDesk.RebusCompanion.Core\EasyDesk.RebusCompanion.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ErrorsManagers\" />
-  </ItemGroup>
-
 </Project>

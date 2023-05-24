@@ -7,7 +7,7 @@ namespace EasyDesk.RebusCompanion.Core.Config;
 
 public class RebusConfiguration
 {
-    private Action<RebusConfigurer, string> _configure;
+    private Action<RebusConfigurer, string>? _configure;
     private IClock _clock = SystemClock.Instance;
 
     public RebusConfiguration WithTransport(Action<StandardConfigurer<ITransport>, string> transport)
