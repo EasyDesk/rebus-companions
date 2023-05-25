@@ -12,7 +12,7 @@ var configuration = new ConfigurationBuilder()
 var postgresConnection = configuration.RequireValue<string>("SqlServerConnection");
 var rabbitMqConnection = configuration.RequireValue<string>("RabbitMqConnection");
 var endpoint = configuration.GetValueAsOption<string>("RebusEndpoint").OrElse(RebusScheduler.DefaultEndpoint);
-var tableName = configuration.GetValueAsOption<string>("TableName").OrElse("timeouts");
+var tableName = configuration.GetValueAsOption<string>("TableName").OrElse("Timeouts");
 
 var rebusConfig = new RebusConfiguration()
     .WithTransport((t, e) => t.UseRabbitMq(rabbitMqConnection, e));
