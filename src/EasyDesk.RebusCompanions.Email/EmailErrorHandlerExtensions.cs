@@ -14,10 +14,9 @@ public static class EmailErrorHandlerExtensions
 {
     public static IServiceCollection AddEmailErrorHandler(
         this IServiceCollection services,
-        IConfiguration configuration,
+        IConfigurationSection emailConfigSection,
         Action<IFluentEmail, JObject, IMessageContext> configureEmail)
     {
-        var emailConfigSection = configuration.RequireSection("Email");
         var smtpClientOptions = new SmtpClientOptions();
         emailConfigSection.Bind(smtpClientOptions);
 
