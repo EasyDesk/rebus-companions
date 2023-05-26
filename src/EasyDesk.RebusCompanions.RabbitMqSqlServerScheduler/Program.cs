@@ -1,5 +1,5 @@
-﻿using EasyDesk.CleanArchitecture.Infrastructure.Configuration;
-using EasyDesk.Commons;
+﻿using EasyDesk.Commons;
+using EasyDesk.Extensions.Configuration;
 using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Scheduler;
 using Microsoft.Extensions.Configuration;

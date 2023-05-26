@@ -1,5 +1,5 @@
-﻿using EasyDesk.CleanArchitecture.Infrastructure.Configuration;
-using EasyDesk.Commons;
+﻿using EasyDesk.Commons;
+using EasyDesk.Extensions.Configuration;
 using FluentEmail.Core;
 using FluentEmail.MailKitSmtp;
 using Microsoft.Extensions.Configuration;
