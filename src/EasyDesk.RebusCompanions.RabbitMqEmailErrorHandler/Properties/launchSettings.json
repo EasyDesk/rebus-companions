@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler": {
-      "commandName": "Project"
-    },
-    "Docker": {
-      "commandName": "Docker"
-  }
-}

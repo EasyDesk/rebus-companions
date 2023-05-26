@@ -9,7 +9,7 @@ var configuration = new ConfigurationBuilder()
     .AddEnvironmentVariables()
     .Build();
 
-var postgresConnection = configuration.RequireValue<string>("PostgresConnection");
+var dbConnection = configuration.RequireValue<string>("PostgresConnection");
 var rabbitMqConnection = configuration.RequireValue<string>("RabbitMqConnection");
 var endpoint = configuration.GetValueAsOption<string>("RebusEndpoint").OrElse(RebusScheduler.DefaultEndpoint);
 var tableName = configuration.GetValueAsOption<string>("TableName").OrElse("Timeouts");
@@ -19,7 +19,7 @@ var rebusConfig = new RebusConfiguration()
 
 var scheduler = new RebusScheduler(
     rebusConfig,
-    t => t.StoreInPostgres(postgresConnection, tableName),
+    t => t.StoreInPostgres(dbConnection, tableName),
     endpoint);
 
 scheduler.Start();

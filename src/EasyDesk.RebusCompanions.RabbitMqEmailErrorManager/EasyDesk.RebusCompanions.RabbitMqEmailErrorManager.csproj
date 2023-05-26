@@ -1,15 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <RootFolder>../..</RootFolder>
+    <UserSecretsId>dotnet-EasyDesk.RebusCompanions.RabbitMqEmailErrorManager-5241104b-6d73-4ac0-a8ec-17c2d9830a7b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
+    <RootFolder>../..</RootFolder>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.84.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="Rebus.RabbitMq" Version="8.0.0" />
     <PackageReference Include="Rebus.ServiceProvider" Version="9.0.0" />
@@ -19,5 +17,4 @@
     <ProjectReference Include="..\EasyDesk.RebusCompanions.Core\EasyDesk.RebusCompanions.Core.csproj" />
     <ProjectReference Include="..\EasyDesk.RebusCompanions.Email\EasyDesk.RebusCompanions.Email.csproj" />
   </ItemGroup>
-
 </Project>

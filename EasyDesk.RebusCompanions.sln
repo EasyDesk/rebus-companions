@@ -30,11 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "schedulers", "schedulers", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "consumers", "consumers", "{B75B6726-338D-4700-87F8-7905C3B0D989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler", "src\EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler\EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler.csproj", "{47BE6936-6509-4B4F-BD8E-D180ED68EEE9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "handlers", "handlers", "{AB8049CB-F3E0-4284-A50B-EBAD4491BD42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDesk.RebusCompanions.Email", "src\EasyDesk.RebusCompanions.Email\EasyDesk.RebusCompanions.Email.csproj", "{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusCompanions.Email", "src\EasyDesk.RebusCompanions.Email\EasyDesk.RebusCompanions.Email.csproj", "{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager", "src\EasyDesk.RebusCompanions.RabbitMqEmailErrorManager\EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj", "{5F99954E-91E9-4AC1-BCCB-1C875080E16C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,14 +58,14 @@ Global
 		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9E41B15-367D-4235-B62C-F7B636966EEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47BE6936-6509-4B4F-BD8E-D180ED68EEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47BE6936-6509-4B4F-BD8E-D180ED68EEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47BE6936-6509-4B4F-BD8E-D180ED68EEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47BE6936-6509-4B4F-BD8E-D180ED68EEE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DAD8A25-BBE7-4A40-818D-1F9F0840506E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F99954E-91E9-4AC1-BCCB-1C875080E16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F99954E-91E9-4AC1-BCCB-1C875080E16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F99954E-91E9-4AC1-BCCB-1C875080E16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F99954E-91E9-4AC1-BCCB-1C875080E16C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,9 +77,9 @@ Global
 		{A9E41B15-367D-4235-B62C-F7B636966EEE} = {47599FAA-152C-45F2-B190-87DC60A12F8E}
 		{47599FAA-152C-45F2-B190-87DC60A12F8E} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
 		{B75B6726-338D-4700-87F8-7905C3B0D989} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
-		{47BE6936-6509-4B4F-BD8E-D180ED68EEE9} = {B75B6726-338D-4700-87F8-7905C3B0D989}
 		{AB8049CB-F3E0-4284-A50B-EBAD4491BD42} = {79E58AD4-9E16-478D-B91D-BC455B6753BD}
 		{6DAD8A25-BBE7-4A40-818D-1F9F0840506E} = {AB8049CB-F3E0-4284-A50B-EBAD4491BD42}
+		{5F99954E-91E9-4AC1-BCCB-1C875080E16C} = {B75B6726-338D-4700-87F8-7905C3B0D989}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD76ADBB-80B4-48F7-85E8-09077088D99A}

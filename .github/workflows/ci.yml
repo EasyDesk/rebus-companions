@@ -19,7 +19,7 @@ jobs:
       projects: |
         src/EasyDesk.RebusCompanions.RabbitMqPostgresScheduler
         src/EasyDesk.RebusCompanions.RabbitMqSqlServerScheduler
-        src/EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler
+        src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager
 
   docker-build:
     name: Build Docker Images
@@ -31,7 +31,7 @@ jobs:
             image-name: rebus-scheduler-rabbitmq-postgres
           - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqSqlServerScheduler/Dockerfile
             image-name: rebus-scheduler-rabbitmq-sqlserver
-          - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqEmailErrorHandler/Dockerfile
+          - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/Dockerfile
             image-name: rebus-error-manager-rabbitmq-email
     uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v4
     with:

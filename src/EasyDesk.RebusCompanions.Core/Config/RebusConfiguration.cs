@@ -22,6 +22,18 @@ public class RebusConfiguration
         return this;
     }
 
+    public RebusConfiguration WithOptions(Action<OptionsConfigurer> options)
+    {
+        _configure += (rebus, endpoint) => rebus.Options(options);
+        return this;
+    }
+
+    public RebusConfiguration WithLogging(Action<RebusLoggingConfigurer> logging)
+    {
+        _configure += (rebus, endpoint) => rebus.Logging(logging);
+        return this;
+    }
+
     public RebusConfigurer Apply(RebusConfigurer rebus, string endpoint)
     {
         _configure?.Invoke(rebus, endpoint);
