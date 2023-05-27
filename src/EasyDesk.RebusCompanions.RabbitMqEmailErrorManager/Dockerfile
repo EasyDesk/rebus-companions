@@ -6,7 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
-COPY ["EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj", "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/"]
+COPY ["src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj", "src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/"]
 COPY ["src/EasyDesk.RebusCompanions.Core/EasyDesk.RebusCompanions.Core.csproj", "src/EasyDesk.RebusCompanions.Core/"]
 COPY ["src/EasyDesk.RebusCompanions.Email/EasyDesk.RebusCompanions.Email.csproj", "src/EasyDesk.RebusCompanions.Email/"]
 RUN dotnet restore "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj"
