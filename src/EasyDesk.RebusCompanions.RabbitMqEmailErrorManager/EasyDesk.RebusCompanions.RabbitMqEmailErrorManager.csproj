@@ -4,6 +4,7 @@
     <UserSecretsId>dotnet-EasyDesk.RebusCompanions.RabbitMqEmailErrorManager-5241104b-6d73-4ac0-a8ec-17c2d9830a7b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <RootFolder>../..</RootFolder>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
