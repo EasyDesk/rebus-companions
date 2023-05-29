@@ -36,7 +36,6 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         };
 
         var bodyTemplate = """
-            {% layout '_layout.liquid' %}
             A message was delivered to the error queue at timestamp {{ Instant }}:
             <br>
 
