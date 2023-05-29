@@ -7,9 +7,9 @@ COPY ["Directory.Build.props", "."]
 COPY ["src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj", "src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/"]
 COPY ["src/EasyDesk.RebusCompanions.Core/EasyDesk.RebusCompanions.Core.csproj", "src/EasyDesk.RebusCompanions.Core/"]
 COPY ["src/EasyDesk.RebusCompanions.Email/EasyDesk.RebusCompanions.Email.csproj", "src/EasyDesk.RebusCompanions.Email/"]
-RUN dotnet restore "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj"
+RUN dotnet restore "src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj"
 COPY . .
-WORKDIR "/src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager"
+WORKDIR "/src/src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager"
 RUN dotnet build "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager.csproj" -c Release -o /app/build
 
 FROM build AS publish
