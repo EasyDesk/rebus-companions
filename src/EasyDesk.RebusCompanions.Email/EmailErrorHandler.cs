@@ -35,7 +35,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
             Instant = _clock.GetCurrentInstant(),
         };
 
-        var bodyTemplate = $$"""
+        var bodyTemplate = """
             A message was delivered to the error queue at timestamp @Model.Instant:
             <br>
 
