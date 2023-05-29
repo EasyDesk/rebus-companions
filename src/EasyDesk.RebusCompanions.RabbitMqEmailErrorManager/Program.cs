@@ -4,7 +4,6 @@ using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Consumer;
 using EasyDesk.RebusCompanions.Core.HostedService;
 using EasyDesk.RebusCompanions.Email;
-using FluentEmail.Core.Models;
 using NodaTime;
 using Rebus.Activation;
 using Rebus.Config;
@@ -20,11 +19,7 @@ var host = Host
         services.AddSingleton<IClock>(SystemClock.Instance);
 
         var emailSection = configuration.RequireSection("Email");
-        var recipients = emailSection.RequireValue<IEnumerable<string>>("Recipients");
-        services.AddEmailErrorHandler(emailSection, (email, message, context) =>
-        {
-            email.To(recipients.Select(x => new Address(x)));
-        });
+        services.AddEmailErrorHandler(emailSection);
 
         services.AddSingleton<IHandlerActivator>(sp => new DependencyInjectionHandlerActivator(sp));
 

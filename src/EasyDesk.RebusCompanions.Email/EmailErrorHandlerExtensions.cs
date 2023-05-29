@@ -1,13 +1,13 @@
 ﻿using EasyDesk.Commons;
 using EasyDesk.Extensions.Configuration;
-using FluentEmail.Core;
-using FluentEmail.MailKitSmtp;
+using Fluid;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MimeKit;
 using Newtonsoft.Json.Linq;
 using NodaTime;
 using Rebus.Handlers;
-using Rebus.Pipeline;
+using System.Collections.Immutable;
 
 namespace EasyDesk.RebusCompanions.Email;
 
@@ -15,24 +15,39 @@ public static class EmailErrorHandlerExtensions
 {
     public static IServiceCollection AddEmailErrorHandler(
         this IServiceCollection services,
-        IConfigurationSection emailConfigSection,
-        Action<IFluentEmail, JObject, IMessageContext> configureEmail)
+        IConfigurationSection emailConfigSection)
     {
-        var smtpClientOptions = new SmtpClientOptions();
-        emailConfigSection.Bind(smtpClientOptions);
+        var credentialsSection = emailConfigSection.GetSectionAsOption("Credentials");
+        var fromSection = emailConfigSection.RequireSection("From");
 
-        var defaultFromEmail = emailConfigSection.GetValueAsOption<string>("DefaultFromEmail").OrElse(smtpClientOptions.User);
-        var defaultFromName = emailConfigSection.GetValueAsOption<string>("DefaultFromName").OrElse(string.Empty);
+        var settings = new EmailErrorHandlerSettings(
+            Host: emailConfigSection.RequireValue<string>("Host"),
+            Port: emailConfigSection.RequireValue<int>("Port"),
+            UseSsl: emailConfigSection.GetValueAsOption<bool>("UseSsl").OrElse(true),
+            Credentials: credentialsSection.Map(s => new EmailErrorHandlerCredentials(
+                User: s.RequireValue<string>("User"),
+                Password: s.RequireValue<string>("Password"))),
+            From: new MailboxAddress(
+                name: fromSection.GetValueAsOption<string>("Name").OrElseNull(),
+                address: fromSection.RequireValue<string>("Address")),
+            To: emailConfigSection
+                .RequireValue<IEnumerable<string>>("To")
+                .Select(x => new MailboxAddress(null, x))
+                .Cast<InternetAddress>()
+                .ToImmutableHashSet());
 
-        services
-            .AddFluentEmail(defaultFromEmail, defaultFromName)
-            .AddMailKitSender(smtpClientOptions)
-            .AddLiquidRenderer();
+        services.AddSingleton(settings);
 
-        services.AddTransient<IHandleMessages<JObject>>(p => new EmailErrorHandler(
-            p.GetRequiredService<IFluentEmailFactory>(),
-            p.GetRequiredService<IClock>(),
-            configureEmail));
+        var parser = new FluidParser();
+        var rawTemplate = emailConfigSection
+            .GetValueAsOption<string>("RawBodyTemplate")
+            .OrElse(EmailErrorHandler.DefaultBodyTemplate);
+        var template = parser.Parse(rawTemplate);
+
+        services.AddTransient<IHandleMessages<JObject>>(sp => new EmailErrorHandler(
+            sp.GetRequiredService<IClock>(),
+            sp.GetRequiredService<EmailErrorHandlerSettings>(),
+            template));
 
         return services;
     }
