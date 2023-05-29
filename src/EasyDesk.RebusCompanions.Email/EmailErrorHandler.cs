@@ -36,19 +36,19 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         };
 
         var bodyTemplate = """
-            A message was delivered to the error queue at timestamp @Model.Instant:
+            {% layout '_layout.liquid' %}
+            A message was delivered to the error queue at timestamp {{ Instant }}:
             <br>
 
             Body:
-            <pre>@Model.MessageJson</pre>
+            <pre>{{ MessageJson }}</pre>
 
             Headers:
-            @foreach (var item in Model.MessageHeaders)
-            {
-                <b>@item.Key</b>:
-                <pre>@item.Value</pre>
+            {% for item in MessageHeaders %}
+                <b>{{ item.Key }}</b>:
+                <pre>{{ item.Value }}</pre>
                 <br>
-            }
+            {% endfor %}
             """;
 
         var email = _fluentEmailFactory

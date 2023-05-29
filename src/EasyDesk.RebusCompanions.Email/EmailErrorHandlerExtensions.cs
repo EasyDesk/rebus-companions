@@ -27,7 +27,7 @@ public static class EmailErrorHandlerExtensions
         services
             .AddFluentEmail(defaultFromEmail, defaultFromName)
             .AddMailKitSender(smtpClientOptions)
-            .AddRazorRenderer();
+            .AddLiquidRenderer();
 
         services.AddTransient<IHandleMessages<JObject>>(p => new EmailErrorHandler(
             p.GetRequiredService<IFluentEmailFactory>(),
