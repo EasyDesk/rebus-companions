@@ -20,7 +20,7 @@ public static class EmailErrorHandlerExtensions
         var smtpClientOptions = new SmtpClientOptions();
         emailConfigSection.Bind(smtpClientOptions);
 
-        var defaultFromEmail = emailConfigSection.GetValueAsOption<string>("DefaultFromEmail").OrElseNull();
+        var defaultFromEmail = emailConfigSection.GetValueAsOption<string>("DefaultFromEmail").OrElse(smtpClientOptions.User);
         var defaultFromName = emailConfigSection.GetValueAsOption<string>("DefaultFromName").OrElse(string.Empty);
 
         services
