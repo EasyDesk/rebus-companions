@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Rebus.Handlers;
 using Rebus.Pipeline;
-using System.Web;
 
 namespace EasyDesk.RebusCompanions.Email;
 
@@ -23,22 +22,35 @@ public class EmailErrorHandler : IHandleMessages<JObject>
     {
         var messageContext = MessageContext.Current;
 
-        var body = $"""
+        var model = new
+        {
+            MessageJson = message.ToString(Formatting.Indented),
+            MessageHeaders = messageContext.Headers
+        };
+
+        var bodyTemplate = $$"""
             A message was delivered to the error queue:
+            <br>
 
             Body:
             <pre>
-            {HttpUtility.HtmlEncode(message.ToString(Formatting.Indented))}
+            @Model.MessageJson
             </pre>
 
             Headers:
-            <pre>
-            {HttpUtility.HtmlEncode(messageContext.Headers.Select(x => $"<b>{x.Key}</b>: {x.Value}").ConcatStrings("\n"))}
-            </pre>
+            @foreach (var item in Model.MessageHeaders)
+            {
+                <b>@item.Key</b>:
+                <pre>
+                    @item.Value
+                </pre>
+                <br>
+            }
             """;
 
         var email = _fluentEmailFactory
             .Create()
+            .UsingTemplate(bodyTemplate, )
             .Body(body, isHtml: true)
             .Subject("Message delivered to error queue");
         _configure(email, message, messageContext);
