@@ -5,6 +5,7 @@ using EasyDesk.RebusCompanions.Core.Consumer;
 using EasyDesk.RebusCompanions.Core.HostedService;
 using EasyDesk.RebusCompanions.Email;
 using FluentEmail.Core.Models;
+using NodaTime;
 using Rebus.Activation;
 using Rebus.Config;
 using Rebus.Retry.Simple;
@@ -16,6 +17,8 @@ var host = Host
     {
         var configuration = context.Configuration;
 
+        services.AddSingleton<IClock>(SystemClock.Instance);
+
         var emailSection = configuration.RequireSection("Email");
         var recipients = emailSection.RequireValue<IEnumerable<string>>("Recipients");
         services.AddEmailErrorHandler(emailSection, (email, message, context) =>
@@ -26,7 +29,7 @@ var host = Host
         services.AddSingleton<IHandlerActivator>(sp => new DependencyInjectionHandlerActivator(sp));
 
         var rabbitMqConnection = configuration.RequireValue<string>("RabbitMqConnection");
-        services.AddSingleton(sp => new RebusConfiguration()
+        services.AddSingleton(sp => new RebusConfiguration(sp)
             .WithTransport((t, e) => t.UseRabbitMq(rabbitMqConnection, e))
             .WithLogging(l => l.MicrosoftExtensionsLogging(sp.GetRequiredService<ILoggerFactory>())));
 

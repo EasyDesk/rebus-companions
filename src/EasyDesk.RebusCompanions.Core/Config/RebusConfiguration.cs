@@ -1,4 +1,5 @@
-﻿using NodaTime;
+﻿using Microsoft.Extensions.DependencyInjection;
+using NodaTime;
 using Rebus.Config;
 using Rebus.Time;
 using Rebus.Transport;
@@ -8,7 +9,17 @@ namespace EasyDesk.RebusCompanions.Core.Config;
 public class RebusConfiguration
 {
     private Action<RebusConfigurer, string>? _configure;
-    private IClock _clock = SystemClock.Instance;
+    private IClock _clock;
+
+    public RebusConfiguration(IServiceProvider serviceProvider)
+    {
+        _clock = serviceProvider.GetRequiredService<IClock>();
+    }
+
+    public RebusConfiguration()
+    {
+        _clock = SystemClock.Instance;
+    }
 
     public RebusConfiguration WithTransport(Action<StandardConfigurer<ITransport>, string> transport)
     {

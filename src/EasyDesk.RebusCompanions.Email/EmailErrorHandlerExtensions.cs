@@ -5,6 +5,7 @@ using FluentEmail.MailKitSmtp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Linq;
+using NodaTime;
 using Rebus.Handlers;
 using Rebus.Pipeline;
 
@@ -29,6 +30,7 @@ public static class EmailErrorHandlerExtensions
 
         services.AddTransient<IHandleMessages<JObject>>(p => new EmailErrorHandler(
             p.GetRequiredService<IFluentEmailFactory>(),
+            p.GetRequiredService<IClock>(),
             configureEmail));
 
         return services;
