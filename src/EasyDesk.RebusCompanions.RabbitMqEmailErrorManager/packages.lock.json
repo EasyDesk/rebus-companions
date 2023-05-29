@@ -38,6 +38,16 @@
         "resolved": "1.18.1",
         "contentHash": "RtNQEQQ/bgaxzrsZEkPB+/DFaUgNiq8GtZz/R4lt+mKXPcEvEuawlbl0PB1s7ND9kvkUVZtMphPxE9Ma1VGiFg=="
       },
+      "Rebus.Microsoft.Extensions.Logging": {
+        "type": "Direct",
+        "requested": "[4.0.0, )",
+        "resolved": "4.0.0",
+        "contentHash": "dERBJH3QJms8lCUkRavSzK/KrlJDBEP9sK5tCxnqKLVKro8W8VGnrxYZwHRpvfUsAGTltvmsCVeFjaYX1/Hivg==",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "7.0.0",
+          "rebus": "6.6.5"
+        }
+      },
       "Rebus.RabbitMq": {
         "type": "Direct",
         "requested": "[8.0.0, )",

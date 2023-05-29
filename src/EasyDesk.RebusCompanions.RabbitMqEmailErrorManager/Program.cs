@@ -26,8 +26,9 @@ var host = Host
         services.AddSingleton<IHandlerActivator>(sp => new DependencyInjectionHandlerActivator(sp));
 
         var rabbitMqConnection = configuration.RequireValue<string>("RabbitMqConnection");
-        services.AddSingleton(new RebusConfiguration()
-            .WithTransport((t, e) => t.UseRabbitMq(rabbitMqConnection, e)));
+        services.AddSingleton(sp => new RebusConfiguration()
+            .WithTransport((t, e) => t.UseRabbitMq(rabbitMqConnection, e))
+            .WithLogging(l => l.MicrosoftExtensionsLogging(sp.GetRequiredService<ILoggerFactory>())));
 
         var endpoint = configuration
             .GetValueAsOption<string>("RebusEndpoint")

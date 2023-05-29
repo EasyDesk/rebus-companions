@@ -17,8 +17,8 @@ jobs:
       warnings-as-errors: true
       integration-tests-project: test/EasyDesk.RebusCompanions.IntegrationTests
       projects: |
-        src/EasyDesk.RebusCompanions.RabbitMqPostgresScheduler
-        src/EasyDesk.RebusCompanions.RabbitMqSqlServerScheduler
+        src/EasyDesk.RebusCompanions.Scheduler.RabbitMqPostgres
+        src/EasyDesk.RebusCompanions.Scheduler.RabbitMqSqlServer
         src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager
 
   docker-build:
@@ -27,9 +27,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqPostgresScheduler/Dockerfile
+          - dockerfile: src/EasyDesk.RebusCompanions.Scheduler.RabbitMqPostgres/Dockerfile
             image-name: rebus-scheduler-rabbitmq-postgres
-          - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqSqlServerScheduler/Dockerfile
+          - dockerfile: src/EasyDesk.RebusCompanions.Scheduler.RabbitMqSqlServer/Dockerfile
             image-name: rebus-scheduler-rabbitmq-sqlserver
           - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/Dockerfile
             image-name: rebus-error-manager-rabbitmq-email
