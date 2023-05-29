@@ -2137,6 +2137,7 @@
           "EasyDesk.Commons": "[0.82.4, )",
           "Microsoft.Extensions.Hosting": "[7.0.1, )",
           "NodaTime": "[3.1.9, )",
+          "Rebus": "[7.1.0, )",
           "Rebus.ServiceProvider": "[9.0.0, )"
         }
       }

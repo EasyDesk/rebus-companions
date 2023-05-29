@@ -1,5 +1,6 @@
 ﻿using EasyDesk.CleanArchitecture.Application.Cqrs.Async;
 using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+using Newtonsoft.Json.Linq;
 using NSubstitute;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Consumers;
@@ -26,6 +27,6 @@ public abstract class AbstractConsumerTests<T> : IClassFixture<T>
         await _sender.Send(command);
         await Task.Delay(500);
 
-        await _fixture.Handler.Received(1).Handle(command);
+        await _fixture.Handler.Received(1).Handle(Arg.Is<JObject>(o => o.ToObject<Command>() == command));
     }
 }

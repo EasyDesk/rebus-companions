@@ -1,6 +1,7 @@
 ﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
 using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Consumer;
+using Newtonsoft.Json.Linq;
 using NodaTime;
 using NSubstitute;
 using Rebus.Activation;
@@ -20,7 +21,7 @@ public abstract class RebusConsumerFixture : IAsyncLifetime
 
     public RebusConsumerFixture()
     {
-        Handler = Substitute.For<IHandleMessages<object>>();
+        Handler = Substitute.For<IHandleMessages<JObject>>();
         var activator = new BuiltinHandlerActivator().Register(() => Handler);
 
         _defaultConfiguration = new RebusConfiguration()
@@ -28,7 +29,7 @@ public abstract class RebusConsumerFixture : IAsyncLifetime
         _consumer = new RebusConsumer(activator, Endpoint, _defaultConfiguration);
     }
 
-    public IHandleMessages<object> Handler { get; }
+    public IHandleMessages<JObject> Handler { get; }
 
     public RebusTestBus CreateBus(string endpoint, Duration? defaultTimeout = null)
     {

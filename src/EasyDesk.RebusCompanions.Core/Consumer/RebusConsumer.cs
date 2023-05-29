@@ -1,4 +1,5 @@
 ﻿using EasyDesk.RebusCompanions.Core.Config;
+using EasyDesk.RebusCompanions.Core.Json;
 using Rebus.Activation;
 using Rebus.Config;
 
@@ -18,5 +19,7 @@ public class RebusConsumer : RebusProcess
 
     protected override void ConfigureRebusBus(RebusConfigurer configurer)
     {
+        configurer
+            .Serialization(s => s.AlwaysDeserializeAsJObject());
     }
 }

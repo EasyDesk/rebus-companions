@@ -433,8 +433,8 @@
       },
       "Rebus": {
         "type": "Transitive",
-        "resolved": "7.0.0",
-        "contentHash": "IGfOsJf25uJB+2Gu1HXvIv2IXCJFcM3XiC5+3P+Y9UtQQURgzBr1gqpmY3zW6KUclbcKwjtITmSR8DVFzAAWWw==",
+        "resolved": "7.1.0",
+        "contentHash": "FatWlu0kUjHL8c3JDWhQ28sj56XxHTqh2NIJZ+cok8m74E+62MB/PrnVbXL479dIvPm2+X05IZkxyVTrWp7dtg==",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "[12.0.1, 14.0.0)",
@@ -490,6 +490,7 @@
           "EasyDesk.Commons": "[0.82.4, )",
           "Microsoft.Extensions.Hosting": "[7.0.1, )",
           "NodaTime": "[3.1.9, )",
+          "Rebus": "[7.1.0, )",
           "Rebus.ServiceProvider": "[9.0.0, )"
         }
       },
