@@ -83,7 +83,11 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         var model = new
         {
             MessageJson = message.ToString(Formatting.Indented),
-            MessageHeaders = messageContext.Headers.Select(x => new { x.Key, x.Value }).ToList(),
+            MessageHeaders = messageContext
+                .Headers
+                .OrderBy(x => x.Key)
+                .Select(x => new { x.Key, x.Value })
+                .ToList(),
             Instant = _clock.GetCurrentInstant(),
         };
 
