@@ -8,6 +8,7 @@ using NodaTime;
 using Rebus.Handlers;
 using Rebus.Pipeline;
 using System.Collections.Immutable;
+using System.Text.Encodings.Web;
 
 namespace EasyDesk.RebusCompanions.Email;
 
@@ -96,7 +97,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
             MemberAccessStrategy = UnsafeMemberAccessStrategy.Instance
         };
         var templateContext = new TemplateContext(model, templateOptions);
-        return _template.RenderAsync(templateContext);
+        return _template.RenderAsync(templateContext, HtmlEncoder.Default);
     }
 
     private async Task SendEmail(MimeMessage email)
