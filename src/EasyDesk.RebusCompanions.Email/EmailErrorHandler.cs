@@ -1,6 +1,7 @@
 ﻿using EasyDesk.Commons;
 using Fluid;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using MimeKit;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -103,7 +104,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
     private async Task SendEmail(MimeMessage email)
     {
         using var client = new SmtpClient();
-        await client.ConnectAsync(_settings.Host, _settings.Port, _settings.UseSsl);
+        await client.ConnectAsync(_settings.Host, _settings.Port, _settings.UseSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
         await _settings.Credentials.IfPresentAsync(c => client.AuthenticateAsync(c.User, c.Password));
         await client.SendAsync(email);
         await client.DisconnectAsync(true);
