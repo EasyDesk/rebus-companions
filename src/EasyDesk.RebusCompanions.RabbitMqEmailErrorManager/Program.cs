@@ -4,6 +4,7 @@ using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Consumer;
 using EasyDesk.RebusCompanions.Core.HostedService;
 using EasyDesk.RebusCompanions.Email;
+using EasyDesk.RebusCompanions.RabbitMqEmailErrorManager;
 using NodaTime;
 using Rebus.Activation;
 using Rebus.Config;
@@ -41,4 +42,4 @@ var host = Host
     })
     .Build();
 
-host.Run();
+await host.ExecuteCommand(args, or: host.Run);

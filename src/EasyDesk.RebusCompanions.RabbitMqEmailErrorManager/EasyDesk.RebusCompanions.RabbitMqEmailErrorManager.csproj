@@ -9,10 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Mono.Options" Version="6.12.0.148" />
     <PackageReference Include="Rebus.Microsoft.Extensions.Logging" Version="4.0.0" />
     <PackageReference Include="Rebus.RabbitMq" Version="8.0.0" />
-    <PackageReference Include="Rebus.ServiceProvider" Version="9.0.0" />
+    <PackageReference Include="Rebus.ServiceProvider" Version="9.1.0" />
   </ItemGroup>
 
   <ItemGroup>

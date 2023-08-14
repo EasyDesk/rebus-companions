@@ -34,9 +34,15 @@
       },
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
         "type": "Direct",
-        "requested": "[1.18.1, )",
-        "resolved": "1.18.1",
-        "contentHash": "RtNQEQQ/bgaxzrsZEkPB+/DFaUgNiq8GtZz/R4lt+mKXPcEvEuawlbl0PB1s7ND9kvkUVZtMphPxE9Ma1VGiFg=="
+        "requested": "[1.19.5, )",
+        "resolved": "1.19.5",
+        "contentHash": "Kaa1rBZdJFq5A0qgAcl6Bmk/UqLXTq9acEqxUlPEBA8oscmakLfkvuSXfG7Wa9t1/keaT85EuuDNgOo+Z9VYOQ=="
+      },
+      "Mono.Options": {
+        "type": "Direct",
+        "requested": "[6.12.0.148, )",
+        "resolved": "6.12.0.148",
+        "contentHash": "kf6bdXnP4IzqIp4bJ1YKPI3/PAcOV6qm4mznChJ3c92zHQUXTWJSp0+h+Cfcii0O6m/EgW7KA+tbCiB2al0DDA=="
       },
       "Rebus.Microsoft.Extensions.Logging": {
         "type": "Direct",
@@ -60,41 +66,41 @@
       },
       "Rebus.ServiceProvider": {
         "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "SF+qPpWHtnlgZ/1hw/OVC+dqCUN7y7RbzfVPVdKJf4LVIrT1io7a4NAaUuzzvo9SCyoXJJYS6kIdDHvq2oiJSw==",
+        "requested": "[9.1.0, )",
+        "resolved": "9.1.0",
+        "contentHash": "d0aM2I0XJ3ux0djCtNDfrjdULj4gabCVPBnvMndQZd8n4JYHdxxnP28n3bIzsMlJ5p678Rv+BoW0vPz1wPXfyA==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "[6.0.0, 8.0.0)",
           "Microsoft.Extensions.Hosting.Abstractions": "[6.0.0, 8.0.0)",
-          "Rebus": "6.0.0",
+          "Rebus": "[7.0.0, 8.0.0)",
           "microsoft.extensions.logging.abstractions": "[6.0.0, 8.0.0)"
         }
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0-beta.435, )",
-        "resolved": "1.2.0-beta.435",
-        "contentHash": "TADk7vdGXtfTnYCV7GyleaaRTQjfoSfZXprQrVMm7cSJtJbFc1QIbWPyLvrgrfGdfHbGmUPvaN4ODKNxg2jgPQ==",
+        "requested": "[1.2.0-beta.507, )",
+        "resolved": "1.2.0-beta.507",
+        "contentHash": "/FtugDT66cKJJ+GGH7rNpG6UDrT4iIWz45M6lrXXHobDUFDHw+q5VgkbiR+6ffTO564ge7w6fQh/eoQhVdJO8Q==",
         "dependencies": {
-          "StyleCop.Analyzers.Unstable": "1.2.0.435"
+          "StyleCop.Analyzers.Unstable": "1.2.0.507"
         }
       },
       "BouncyCastle.Cryptography": {
         "type": "Transitive",
-        "resolved": "2.1.1",
-        "contentHash": "NNQaa4eyf5YjSdLKUWGPzq5HXZQc3yGybfIOkR6UY1C/rRFWdo0UhSzBqqnxwGnq3ie4vkN0JlzhhANjfTIJIQ=="
+        "resolved": "2.2.1",
+        "contentHash": "A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ=="
       },
       "EasyDesk.Commons": {
         "type": "Transitive",
-        "resolved": "0.84.0",
-        "contentHash": "R4gn+fFW0rlfsjY6VLZuLuNJiVwrr1B9lPQE5W0yG+ZDDgVB5BrB6g0OVrkv3ZUCg2T/VKh7KtHRmEXSbVpGTQ=="
+        "resolved": "0.103.8",
+        "contentHash": "hpbAIU6+wO/wTZ7Qk9WkxKfbweCP/unYLHzT5UpP7+VrjdxVbqBJF/OB+hm+K/C8uA0xIX+jVpf0Jhe9a2N4Pg=="
       },
       "EasyDesk.Extensions.Configuration": {
         "type": "Transitive",
-        "resolved": "0.84.0",
-        "contentHash": "Y7w+HZuX8IfhQw5zRgKwdJ2WMBbFu6wkRODs/HJRUUj5u3xEVmbrWcRAHmu1G2r6gxcADDI2oCYEZLaaIFYwdQ==",
+        "resolved": "0.103.8",
+        "contentHash": "7JGKpjOPyW/WY17a3K/qcBcGAmP69OTbBZUJd+GkX0nlY3eHfODr8y4L8jYsoqrz7azGa4Z9PKnpY5Iua10QoQ==",
         "dependencies": {
-          "EasyDesk.Commons": "0.84.0",
+          "EasyDesk.Commons": "0.103.8",
           "Microsoft.Extensions.Configuration.Binder": "7.0.4"
         }
       },
@@ -110,10 +116,10 @@
       },
       "MailKit": {
         "type": "Transitive",
-        "resolved": "4.0.0",
-        "contentHash": "vtP6nUU0ByEZTnpbtsfdxyRvcssNSgIml4zi2hpBOV4gYNoaYSt+4VCx28MMnfaO/9J1IzcG+Hc8kXMkWX6iRQ==",
+        "resolved": "4.1.0",
+        "contentHash": "m/G6LiMdu0it09rcZWaK9YtRqoc2/Xhv3+7kbCApEz1sZlK2IihWvfsf1IEWTswy5GmvWrtmh6QSdTyg5MIXgg==",
         "dependencies": {
-          "MimeKit": "4.0.0"
+          "MimeKit": "4.1.0"
         }
       },
       "Microsoft.CSharp": {
@@ -352,13 +358,13 @@
       },
       "MimeKit": {
         "type": "Transitive",
-        "resolved": "4.0.0",
-        "contentHash": "AIyj//7nDutepZjMlYFbc19PguEl+35lryQJX2YVr486G7ihfB4X4lPXjNUyjCcclr3Wq0P2yiQ6+Sonqc7z5A==",
+        "resolved": "4.1.0",
+        "contentHash": "JUIaZfYybdRcyt1wgPo1e2j4aI3Rp8USKpxka1WImUs17+2X3Xl0sDJYfbzFchJ46qZeSvIwL+/aAjxPtFsm4A==",
         "dependencies": {
-          "BouncyCastle.Cryptography": "2.1.1",
+          "BouncyCastle.Cryptography": "2.2.1",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Security.Cryptography.Pkcs": "6.0.2",
-          "System.Text.Encoding.CodePages": "6.0.0"
+          "System.Security.Cryptography.Pkcs": "7.0.2",
+          "System.Text.Encoding.CodePages": "7.0.0"
         }
       },
       "Newtonsoft.Json": {
@@ -390,8 +396,8 @@
       },
       "Rebus": {
         "type": "Transitive",
-        "resolved": "7.1.0",
-        "contentHash": "FatWlu0kUjHL8c3JDWhQ28sj56XxHTqh2NIJZ+cok8m74E+62MB/PrnVbXL479dIvPm2+X05IZkxyVTrWp7dtg==",
+        "resolved": "7.2.0",
+        "contentHash": "zBrsvESc2iRJLNfYj+A+TJA+l7jXABkrw9Qkn6ltIN/kACW3S/VFOZ7b5PcINGnfFrUOKVReqXprx6vLiZq4MA==",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "[12.0.1, 14.0.0)",
@@ -400,8 +406,8 @@
       },
       "StyleCop.Analyzers.Unstable": {
         "type": "Transitive",
-        "resolved": "1.2.0.435",
-        "contentHash": "ouwPWZxbOV3SmCZxIRqHvljkSzkCyi1tDoMzQtDb/bRP8ctASV/iRJr+A2Gdj0QLaLmWnqTWDrH82/iP+X80Lg=="
+        "resolved": "1.2.0.507",
+        "contentHash": "gTY3IQdRqDJ4hbhSA3e/R48oE8b/OiKfvwkt1QdNVfrJK2gMHBV8ldaHJ885jxWZfllK66soa/sdcjh9bX49Tw=="
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Transitive",
@@ -415,8 +421,8 @@
       },
       "System.Formats.Asn1": {
         "type": "Transitive",
-        "resolved": "6.0.0",
-        "contentHash": "T6fD00dQ3NTbPDy31m4eQUwKW84s03z0N2C8HpOklyeaDgaJPa/TexP4/SkORMSOwc7WhKifnA6Ya33AkzmafA=="
+        "resolved": "7.0.0",
+        "contentHash": "+nfpV0afLmvJW8+pLlHxRjz3oZJw4fkyU9MMEaMhCsHi/SN9bGF9q79ROubDiwTiCHezmK0uCWkPP7tGFP/4yg=="
       },
       "System.Memory": {
         "type": "Transitive",
@@ -430,19 +436,16 @@
       },
       "System.Security.Cryptography.Pkcs": {
         "type": "Transitive",
-        "resolved": "6.0.2",
-        "contentHash": "1YcPZrdfjbHtzA2Y9EeAZ1zt7EWPBs30lgpG9PXgwP7onF91+sX1qijegcnuo4cULCcT8GiaaJFsDcEqdc9PVg==",
+        "resolved": "7.0.2",
+        "contentHash": "xhFNJOcQSWhpiVGLLBQYoxAltQSQVycMkwaX1z7I7oEdT9Wr0HzSM1yeAbfoHaERIYd5s6EpLSOLs2qMchSKlA==",
         "dependencies": {
-          "System.Formats.Asn1": "6.0.0"
+          "System.Formats.Asn1": "7.0.0"
         }
       },
       "System.Text.Encoding.CodePages": {
         "type": "Transitive",
-        "resolved": "6.0.0",
-        "contentHash": "ZFCILZuOvtKPauZ/j/swhvw68ZRi9ATCfvGbk1QfydmcXBkIWecWKn/250UH7rahZ5OoDBaiAudJtPvLwzw85A==",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        }
+        "resolved": "7.0.0",
+        "contentHash": "LSyCblMpvOe0N3E+8e0skHcrIhgV2huaNcjUUEa8hRtgEAm36aGkRoC8Jxlb6Ra6GSfF29ftduPNywin8XolzQ=="
       },
       "System.Text.Encodings.Web": {
         "type": "Transitive",
@@ -470,20 +473,20 @@
       "easydesk.rebuscompanions.core": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Commons": "[0.82.4, )",
+          "EasyDesk.Commons": "[0.103.8, )",
           "Microsoft.Extensions.Hosting": "[7.0.1, )",
           "NodaTime": "[3.1.9, )",
-          "Rebus": "[7.1.0, )",
-          "Rebus.ServiceProvider": "[9.0.0, )"
+          "Rebus": "[7.2.0, )",
+          "Rebus.ServiceProvider": "[9.1.0, )"
         }
       },
       "easydesk.rebuscompanions.email": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Extensions.Configuration": "[0.84.0, )",
+          "EasyDesk.Extensions.Configuration": "[0.103.8, )",
           "EasyDesk.RebusCompanions.Core": "[1.0.0, )",
           "Fluid.Core": "[2.4.0, )",
-          "MailKit": "[4.0.0, )"
+          "MailKit": "[4.1.0, )"
         }
       }
     }

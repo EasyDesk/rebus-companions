@@ -64,7 +64,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         await SendEmail(email);
     }
 
-    private async Task<MimeMessage> CreateMimeMessage(JObject message, IMessageContext messageContext)
+    private async Task<MimeMessage> CreateMimeMessage(JObject message, IMessageContext? messageContext)
     {
         var bodyBuilder = new BodyBuilder()
         {
@@ -79,14 +79,14 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         return email;
     }
 
-    private ValueTask<string> GenerateBodyHtml(JObject message, IMessageContext messageContext)
+    private ValueTask<string> GenerateBodyHtml(JObject message, IMessageContext? messageContext)
     {
         var model = new
         {
             MessageJson = message.ToString(Formatting.Indented),
-            MessageHeaders = messageContext
-                .Headers
-                .OrderBy(x => x.Key)
+            MessageHeaders = (messageContext
+                ?.Headers
+                ?.OrderBy(x => x.Key) ?? Enumerable.Empty<KeyValuePair<string, string>>())
                 .Select(x => new { x.Key, x.Value })
                 .ToList(),
             Instant = _clock.GetCurrentInstant(),

@@ -9,6 +9,14 @@
     },
     "Docker": {
       "commandName": "Docker"
+    },
+    "EasyDesk.RebusCompanions.RabbitMqEmailErrorManager SMOKE TEST": {
+      "commandName": "Project",
+      "commandLineArgs": "--smoke",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
     }
   }
 }

@@ -4,12 +4,12 @@
     "net7.0": {
       "Microsoft.EntityFrameworkCore": {
         "type": "Direct",
-        "requested": "[7.0.5, )",
-        "resolved": "7.0.5",
-        "contentHash": "RXbRLHHWP2Z3pq8qcL5nQ6LPeoOyp8hasM5bd0Te8PiQi3RjWQR4tcbdY5XMqQ+oTO9wA8/RLhZRn/hnxlTDnQ==",
+        "requested": "[7.0.10, )",
+        "resolved": "7.0.10",
+        "contentHash": "24NbXJqJ/x8u88/agqeb1pLdAF9+9StDLA36+P/3g5xsJPOaB2GxXn7epR8dWpZTgHsNZ7cvBMxBgfFmF+xZlg==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.5",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.5",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.10",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.10",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -17,17 +17,17 @@
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0-beta.435, )",
-        "resolved": "1.2.0-beta.435",
-        "contentHash": "TADk7vdGXtfTnYCV7GyleaaRTQjfoSfZXprQrVMm7cSJtJbFc1QIbWPyLvrgrfGdfHbGmUPvaN4ODKNxg2jgPQ==",
+        "requested": "[1.2.0-beta.507, )",
+        "resolved": "1.2.0-beta.507",
+        "contentHash": "/FtugDT66cKJJ+GGH7rNpG6UDrT4iIWz45M6lrXXHobDUFDHw+q5VgkbiR+6ffTO564ge7w6fQh/eoQhVdJO8Q==",
         "dependencies": {
-          "StyleCop.Analyzers.Unstable": "1.2.0.435"
+          "StyleCop.Analyzers.Unstable": "1.2.0.507"
         }
       },
       "EasyDesk.Commons": {
         "type": "Transitive",
-        "resolved": "0.82.4",
-        "contentHash": "GjxWDoIQMNJ8mLznzXlIpWk0JOD3i7IAnsm451FmWokkRJHpR36snNC9DqyRCpXIxWl9CypbD6/uuqpCoJ4vJA=="
+        "resolved": "0.103.8",
+        "contentHash": "hpbAIU6+wO/wTZ7Qk9WkxKfbweCP/unYLHzT5UpP7+VrjdxVbqBJF/OB+hm+K/C8uA0xIX+jVpf0Jhe9a2N4Pg=="
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
@@ -36,13 +36,13 @@
       },
       "Microsoft.EntityFrameworkCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "7.0.5",
-        "contentHash": "iwQso+hFRsEWjhH2WsEQj1D2QE5BlEXiXEt6A3SlYTPRPdZsyTNDeDDEdtxL+H/UJPQgQYY+9SMMRcEiXBmCAA=="
+        "resolved": "7.0.10",
+        "contentHash": "Z/lDWmGLiT9uNQrp6UXTKZxofSmAKQCiKOz98FDscTbfAGgBXE3DTTqRsPMc8HFIVVSNANSiFRz3JyLg07HN9Q=="
       },
       "Microsoft.EntityFrameworkCore.Analyzers": {
         "type": "Transitive",
-        "resolved": "7.0.5",
-        "contentHash": "yMLM/aK1MikVqpjxd7PJ1Pjgztd3VAd26ZHxyjxG3RPeM9cHjvS5tCg9kAAayR6eHmBg0ffZsHdT28WfA5tTlA=="
+        "resolved": "7.0.10",
+        "contentHash": "+8NVNpyJTzW6nNh/7RGfldf+mbeboVcn+X1tD8kMBCEJswuy3RqM/qecEEfOfTcWLliZExPMaHwOwtHO6RMpdA=="
       },
       "Microsoft.Extensions.Caching.Abstractions": {
         "type": "Transitive",
@@ -337,8 +337,8 @@
       },
       "Rebus": {
         "type": "Transitive",
-        "resolved": "7.1.0",
-        "contentHash": "FatWlu0kUjHL8c3JDWhQ28sj56XxHTqh2NIJZ+cok8m74E+62MB/PrnVbXL479dIvPm2+X05IZkxyVTrWp7dtg==",
+        "resolved": "7.2.0",
+        "contentHash": "zBrsvESc2iRJLNfYj+A+TJA+l7jXABkrw9Qkn6ltIN/kACW3S/VFOZ7b5PcINGnfFrUOKVReqXprx6vLiZq4MA==",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "[12.0.1, 14.0.0)",
@@ -347,19 +347,19 @@
       },
       "Rebus.ServiceProvider": {
         "type": "Transitive",
-        "resolved": "9.0.0",
-        "contentHash": "SF+qPpWHtnlgZ/1hw/OVC+dqCUN7y7RbzfVPVdKJf4LVIrT1io7a4NAaUuzzvo9SCyoXJJYS6kIdDHvq2oiJSw==",
+        "resolved": "9.1.0",
+        "contentHash": "d0aM2I0XJ3ux0djCtNDfrjdULj4gabCVPBnvMndQZd8n4JYHdxxnP28n3bIzsMlJ5p678Rv+BoW0vPz1wPXfyA==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "[6.0.0, 8.0.0)",
           "Microsoft.Extensions.Hosting.Abstractions": "[6.0.0, 8.0.0)",
-          "Rebus": "6.0.0",
+          "Rebus": "[7.0.0, 8.0.0)",
           "microsoft.extensions.logging.abstractions": "[6.0.0, 8.0.0)"
         }
       },
       "StyleCop.Analyzers.Unstable": {
         "type": "Transitive",
-        "resolved": "1.2.0.435",
-        "contentHash": "ouwPWZxbOV3SmCZxIRqHvljkSzkCyi1tDoMzQtDb/bRP8ctASV/iRJr+A2Gdj0QLaLmWnqTWDrH82/iP+X80Lg=="
+        "resolved": "1.2.0.507",
+        "contentHash": "gTY3IQdRqDJ4hbhSA3e/R48oE8b/OiKfvwkt1QdNVfrJK2gMHBV8ldaHJ885jxWZfllK66soa/sdcjh9bX49Tw=="
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Transitive",
@@ -392,11 +392,11 @@
       "easydesk.rebuscompanions.core": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Commons": "[0.82.4, )",
+          "EasyDesk.Commons": "[0.103.8, )",
           "Microsoft.Extensions.Hosting": "[7.0.1, )",
           "NodaTime": "[3.1.9, )",
-          "Rebus": "[7.1.0, )",
-          "Rebus.ServiceProvider": "[9.0.0, )"
+          "Rebus": "[7.2.0, )",
+          "Rebus.ServiceProvider": "[9.1.0, )"
         }
       }
     }
