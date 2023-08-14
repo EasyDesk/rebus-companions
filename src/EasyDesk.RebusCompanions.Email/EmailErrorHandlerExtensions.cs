@@ -28,7 +28,7 @@ public static class EmailErrorHandlerExtensions
                 .Map(s => new EmailErrorHandlerCredentials(
                     User: s.RequireValue<string>("User"),
                     Password: s.RequireValue<string>("Password")))
-                .Filter(cred => !string.IsNullOrEmpty(cred.Password)),
+                .Filter(cred => !(string.IsNullOrEmpty(cred.User) && string.IsNullOrEmpty(cred.Password))),
             From: new MailboxAddress(
                 name: fromSection.GetValueAsOption<string>("Name").OrElseNull(),
                 address: fromSection.RequireValue<string>("Address")),
