@@ -24,9 +24,11 @@ public static class EmailErrorHandlerExtensions
             Host: emailConfigSection.RequireValue<string>("Host"),
             Port: emailConfigSection.RequireValue<int>("Port"),
             UseSsl: emailConfigSection.GetValueAsOption<bool>("UseSsl").OrElse(true),
-            Credentials: credentialsSection.Map(s => new EmailErrorHandlerCredentials(
-                User: s.RequireValue<string>("User"),
-                Password: s.RequireValue<string>("Password"))),
+            Credentials: credentialsSection
+                .Map(s => new EmailErrorHandlerCredentials(
+                    User: s.RequireValue<string>("User"),
+                    Password: s.RequireValue<string>("Password")))
+                .Filter(cred => !string.IsNullOrEmpty(cred.Password)),
             From: new MailboxAddress(
                 name: fromSection.GetValueAsOption<string>("Name").OrElseNull(),
                 address: fromSection.RequireValue<string>("Address")),
