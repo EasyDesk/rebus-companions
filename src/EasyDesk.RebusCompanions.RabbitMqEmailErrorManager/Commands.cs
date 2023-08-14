@@ -14,7 +14,7 @@ public static class Commands
         Option<SmokeTest> doSmokeTest = NoneOption.Value;
         var options = new OptionSet()
         {
-            { "smoke", arg => doSmokeTest = new SmokeTest(Message: arg.AsSome().Filter(arg => !string.IsNullOrWhiteSpace(arg)) | "Hello World!").AsSome() }
+            { "smoke:", arg => doSmokeTest = new SmokeTest(Message: arg.AsOption().Filter(arg => !string.IsNullOrWhiteSpace(arg)) | "Hello World!").AsSome() }
         };
         var extra = options.Parse(args);
         if (doSmokeTest)
