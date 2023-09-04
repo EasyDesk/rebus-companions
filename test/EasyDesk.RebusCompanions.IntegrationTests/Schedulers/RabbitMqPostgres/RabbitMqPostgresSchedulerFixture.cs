@@ -1,4 +1,5 @@
-﻿using Rebus.Config;
+﻿using DotNet.Testcontainers.Builders;
+using Rebus.Config;
 using Rebus.Timeouts;
 using Rebus.Transport;
 using Testcontainers.PostgreSql;
@@ -16,6 +17,7 @@ public class RabbitMqPostgresSchedulerFixture : RebusSchedulerFixture
         _rabbitMqContainer = new RabbitMqBuilder()
             .WithUsername("admin")
             .WithPassword("admin")
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(5672))
             .Build();
 
         _postgresContainer = new PostgreSqlBuilder()
