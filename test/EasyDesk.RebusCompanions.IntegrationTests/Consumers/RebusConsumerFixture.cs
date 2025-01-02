@@ -1,4 +1,6 @@
-﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
+using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+using EasyDesk.CleanArchitecture.Testing.Unit.Commons;
 using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Consumer;
 using Newtonsoft.Json.Linq;
@@ -9,6 +11,7 @@ using Rebus.Config;
 using Rebus.Handlers;
 using Rebus.Routing.TypeBased;
 using Rebus.Transport;
+using static EasyDesk.Commons.StaticImports;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Consumers;
 
@@ -31,14 +34,15 @@ public abstract class RebusConsumerFixture : IAsyncLifetime
 
     public IHandleMessages<JObject> Handler { get; }
 
-    public RebusTestBus CreateBus(string endpoint, Duration? defaultTimeout = null)
+    public ITestBusEndpoint CreateBus(string endpoint, Duration? defaultTimeout = null)
     {
-        return new RebusTestBus(
+        return new RebusTestBusEndpoint(
             rebus =>
             {
                 _defaultConfiguration.Apply(rebus, endpoint);
                 rebus.Routing(r => r.TypeBased().MapFallback(Endpoint));
             },
+            new TestTenantManager(None),
             defaultTimeout);
     }
 

@@ -31,7 +31,7 @@ var host = Host
 
         var endpoint = configuration
             .GetValueAsOption<string>("RebusEndpoint")
-            .OrElse(SimpleRetryStrategySettings.DefaultErrorQueueName);
+            .OrElse(RetryStrategySettings.DefaultErrorQueueName);
 
         services.AddSingleton(sp => new RebusConsumer(
             sp.GetRequiredService<IHandlerActivator>(),

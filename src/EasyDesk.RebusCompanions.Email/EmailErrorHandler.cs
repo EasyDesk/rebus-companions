@@ -1,4 +1,5 @@
 ﻿using EasyDesk.Commons;
+using EasyDesk.Commons.Options;
 using Fluid;
 using MailKit.Net.Smtp;
 using MailKit.Security;

@@ -1,4 +1,6 @@
-﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
+using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+using EasyDesk.CleanArchitecture.Testing.Unit.Commons;
 using EasyDesk.RebusCompanions.Core.Config;
 using EasyDesk.RebusCompanions.Core.Scheduler;
 using NodaTime;
@@ -6,6 +8,7 @@ using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using Rebus.Timeouts;
 using Rebus.Transport;
+using static EasyDesk.Commons.StaticImports;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Schedulers;
 
@@ -27,15 +30,16 @@ public abstract class RebusSchedulerFixture : IAsyncLifetime
 
     protected abstract void ConfigureTimeouts(StandardConfigurer<ITimeoutManager> timeouts);
 
-    public RebusTestBus CreateBus(string endpoint, string defaultDestination, Duration? defaultTimeout = null)
+    public ITestBusEndpoint CreateBus(string endpoint, string defaultDestination, Duration? defaultTimeout = null)
     {
-        return new RebusTestBus(
+        return new RebusTestBusEndpoint(
             rebus =>
             {
                 _defaultConfiguration.Apply(rebus, endpoint);
                 rebus.Timeouts(t => t.UseExternalTimeoutManager(Endpoint));
                 rebus.Routing(r => r.TypeBased().MapFallback(defaultDestination));
             },
+            new TestTenantManager(None),
             defaultTimeout);
     }
 

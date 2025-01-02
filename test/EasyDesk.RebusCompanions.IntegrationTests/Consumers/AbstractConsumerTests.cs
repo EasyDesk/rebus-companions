@@ -1,5 +1,5 @@
 ﻿using EasyDesk.CleanArchitecture.Application.Cqrs.Async;
-using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
+using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
 using Newtonsoft.Json.Linq;
 using NSubstitute;
 
@@ -12,7 +12,7 @@ public abstract class AbstractConsumerTests<T> : IClassFixture<T>
 
     private readonly T _fixture;
 
-    private readonly RebusTestBus _sender;
+    private readonly ITestBusEndpoint _sender;
 
     public AbstractConsumerTests(T fixture)
     {

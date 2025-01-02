@@ -1,4 +1,5 @@
 ﻿using EasyDesk.Commons;
+using EasyDesk.Commons.Options;
 using Mono.Options;
 using Newtonsoft.Json.Linq;
 using Rebus.Handlers;

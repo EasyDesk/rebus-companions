@@ -12,8 +12,8 @@ public abstract class AbstractSchedulerTests<T> : IClassFixture<T>
     private const string SenderAddress = "sender";
     private const string ReceiverAddress = "receiver";
 
-    private readonly ITestBus _sender;
-    private readonly ITestBus _receiver;
+    private readonly ITestBusEndpoint _sender;
+    private readonly ITestBusEndpoint _receiver;
 
     public AbstractSchedulerTests(T fixture)
     {

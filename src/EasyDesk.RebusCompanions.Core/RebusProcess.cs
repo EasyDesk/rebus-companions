@@ -1,4 +1,5 @@
 ﻿using EasyDesk.Commons;
+using EasyDesk.Commons.Options;
 using EasyDesk.RebusCompanions.Core.Config;
 using Rebus.Activation;
 using Rebus.Bus;
