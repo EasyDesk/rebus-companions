@@ -34,7 +34,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         
         <section>
             <h2>Body</h2
-            <pre>{{ MessageJson }}</pre>
+            <pre>{{ MessageJson | newline_to_br }}</pre>
         </section>
         
         <section>
