@@ -48,6 +48,6 @@ jobs:
     name: GitHub Release
     needs: [build]
     if: needs.build.outputs.should-release == 'true'
-    uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v4
+    uses: EasyDesk/workflows/.github/workflows/github-delivery.yml@v5
     with:
       release-prefix: EasyDesk.RebusCompanions
