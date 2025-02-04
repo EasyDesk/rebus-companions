@@ -34,7 +34,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         
         <section>
             <h2>Body</h2
-            <pre>{{ MessageJson | newline_to_br }}</pre>
+            <pre>{{ MessageJson }}</pre>
         </section>
         
         <section>
@@ -85,7 +85,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
     {
         var model = new
         {
-            MessageJson = message.ToString(Formatting.Indented),
+            MessageJson = message.ToString(Formatting.Indented).ReplaceLineEndings("\r\n"),
             MessageHeaders = (messageContext
                 ?.Headers
                 ?.OrderBy(x => x.Key) ?? Enumerable.Empty<KeyValuePair<string, string>>())
