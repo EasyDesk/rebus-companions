@@ -1,7 +1,9 @@
 ﻿using EasyDesk.RebusCompanions.Core.Config;
 using Rebus.Activation;
 using Rebus.Config;
+using Rebus.Handlers;
 using Rebus.Timeouts;
+using Rebus.Transport;
 
 namespace EasyDesk.RebusCompanions.Core.Scheduler;
 
@@ -17,7 +19,7 @@ public sealed class RebusScheduler : RebusProcess
         RebusConfiguration defaultConfiguration,
         TimeoutManagerConfiguration timeoutManagerConfiguration,
         string endpoint = DefaultEndpoint) : base(
-            new BuiltinHandlerActivator(),
+            new EmptyHandlerActivator(),
             endpoint,
             defaultConfiguration)
     {
@@ -27,5 +29,11 @@ public sealed class RebusScheduler : RebusProcess
     protected override void ConfigureRebusBus(RebusConfigurer configurer)
     {
         configurer.Timeouts(t => _timeoutManagerConfiguration(t));
+    }
+
+    private class EmptyHandlerActivator : IHandlerActivator
+    {
+        public Task<IEnumerable<IHandleMessages<TMessage>>> GetHandlers<TMessage>(TMessage message, ITransactionContext transactionContext) =>
+            Task.FromResult(Enumerable.Empty<IHandleMessages<TMessage>>());
     }
 }

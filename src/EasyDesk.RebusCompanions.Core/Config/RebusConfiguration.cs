@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NodaTime;
 using Rebus.Config;
+using Rebus.Routing;
 using Rebus.Time;
 using Rebus.Transport;
 
@@ -21,6 +22,12 @@ public class RebusConfiguration
         _clock = SystemClock.Instance;
     }
 
+    public RebusConfiguration Configure(Action<RebusConfigurer> configure)
+    {
+        _configure += (rebus, _) => configure(rebus);
+        return this;
+    }
+
     public RebusConfiguration WithTransport(Action<StandardConfigurer<ITransport>, string> transport)
     {
         _configure += (rebus, endpoint) => rebus.Transport(t => transport(t, endpoint));
@@ -35,13 +42,19 @@ public class RebusConfiguration
 
     public RebusConfiguration WithOptions(Action<OptionsConfigurer> options)
     {
-        _configure += (rebus, endpoint) => rebus.Options(options);
+        _configure += (rebus, _) => rebus.Options(options);
         return this;
     }
 
     public RebusConfiguration WithLogging(Action<RebusLoggingConfigurer> logging)
     {
-        _configure += (rebus, endpoint) => rebus.Logging(logging);
+        _configure += (rebus, _) => rebus.Logging(logging);
+        return this;
+    }
+
+    public RebusConfiguration WithRouting(Action<StandardConfigurer<IRouter>> routing)
+    {
+        _configure += (rebus, _) => rebus.Routing(routing);
         return this;
     }
 

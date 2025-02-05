@@ -1,32 +1,37 @@
-﻿using EasyDesk.CleanArchitecture.Application.Cqrs.Async;
-using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
+﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
+using EasyDesk.RebusCompanions.Core.Consumer;
 using Newtonsoft.Json.Linq;
-using NSubstitute;
+using Rebus.Activation;
+using Rebus.Handlers;
+using Rebus.Routing.TypeBased;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Consumers;
 
-public abstract class AbstractConsumerTests<T> : IClassFixture<T>
-    where T : RebusConsumerFixture
+public abstract class AbstractConsumerTests : AbstractRebusTest, IDisposable
 {
-    private record Command(int Value) : ICommand;
+    public const string Endpoint = "consumer";
 
-    private readonly T _fixture;
+    private readonly BuiltinHandlerActivator _activator = new();
+    private readonly RebusConsumer _consumer;
 
-    private readonly ITestBusEndpoint _sender;
-
-    public AbstractConsumerTests(T fixture)
+    public AbstractConsumerTests()
     {
-        _fixture = fixture;
-        _sender = fixture.CreateBus("sender");
+        Sender = CreateBus("sender", rebus => rebus.Routing(r => r.TypeBased().MapFallback(Endpoint)));
+
+        _activator.Register(GetHandler);
+
+        _consumer = new RebusConsumer(_activator, Endpoint, Configuration);
+        _consumer.Start();
     }
 
-    [Fact]
-    public async Task ShouldReceiveMessages()
-    {
-        var command = new Command(1);
-        await _sender.Send(command);
-        await Task.Delay(500);
+    protected ITestBusEndpoint Sender { get; }
 
-        await _fixture.Handler.Received(1).Handle(Arg.Is<JObject>(o => o.ToObject<Command>() == command));
+    protected abstract IHandleMessages<JObject> GetHandler();
+
+    public virtual void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _consumer.Dispose();
+        _activator.Dispose();
     }
 }

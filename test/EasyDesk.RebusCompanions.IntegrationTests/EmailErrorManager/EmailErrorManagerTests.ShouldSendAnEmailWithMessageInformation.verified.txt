@@ -1,0 +1,54 @@
+﻿[
+  {
+    From: [
+      error-manager@test.com
+    ],
+    To: [
+      dev@test.com
+    ],
+    Subject: 1 message delivered to error queue,
+    Html:
+<h1>Message delivered to error queue</h1>
+A message was delivered to the error queue at timestamp 2025-01-01T16:00:00Z.
+
+<section>
+    <h2>Body</h2>
+    <pre>
+{&#xD;&#xA;  &quot;Value&quot;: 1,&#xD;&#xA;  &quot;Text&quot;: &quot;Hello world&quot;&#xD;&#xA;}
+    </pre>
+</section>
+
+<section>
+    <h2>Headers</h2>
+    
+        <b>rbs2-content-type</b>:
+        <pre>application/json;charset=utf-8</pre>
+    
+        <b>rbs2-corr-id</b>:
+        <pre>Guid_1</pre>
+    
+        <b>rbs2-corr-seq</b>:
+        <pre>0</pre>
+    
+        <b>rbs2-intent</b>:
+        <pre>p2p</pre>
+    
+        <b>rbs2-msg-id</b>:
+        <pre>Guid_1</pre>
+    
+        <b>rbs2-msg-type</b>:
+        <pre>EasyDesk.RebusCompanions.IntegrationTests.EmailErrorManager.EmailErrorManagerTests&#x2B;Command, EasyDesk.RebusCompanions.IntegrationTests</pre>
+    
+        <b>rbs2-return-address</b>:
+        <pre>sender</pre>
+    
+        <b>rbs2-sender-address</b>:
+        <pre>sender</pre>
+    
+        <b>rbs2-senttime</b>:
+        <pre>2025-01-01T16:00:00.0000000&#x2B;00:00</pre>
+    
+</section>
+
+  }
+]

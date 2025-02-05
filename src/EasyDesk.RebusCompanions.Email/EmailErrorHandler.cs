@@ -14,17 +14,27 @@ using System.Text.Encodings.Web;
 
 namespace EasyDesk.RebusCompanions.Email;
 
-public record EmailErrorHandlerSettings(
-    string Host,
-    int Port,
-    bool UseSsl,
-    Option<EmailErrorHandlerCredentials> Credentials,
-    InternetAddress From,
-    IImmutableSet<InternetAddress> To);
+public record EmailErrorHandlerSettings
+{
+    public required string Host { get; init; }
 
-public record EmailErrorHandlerCredentials(
-    string User,
-    string Password);
+    public required int Port { get; init; }
+
+    public required bool UseSsl { get; init; }
+
+    public required Option<EmailErrorHandlerCredentials> Credentials { get; init; }
+
+    public required InternetAddress From { get; init; }
+
+    public required IImmutableSet<InternetAddress> To { get; init; }
+}
+
+public record EmailErrorHandlerCredentials
+{
+    public required string User { get; init; }
+
+    public required string Password { get; init; }
+}
 
 public class EmailErrorHandler : IHandleMessages<JObject>
 {
@@ -33,8 +43,10 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         A message was delivered to the error queue at timestamp {{ Instant }}.
         
         <section>
-            <h2>Body</h2
-            <pre>{{ MessageJson }}</pre>
+            <h2>Body</h2>
+            <pre>
+        {{ MessageJson }}
+            </pre>
         </section>
         
         <section>
@@ -62,7 +74,7 @@ public class EmailErrorHandler : IHandleMessages<JObject>
 
     public async Task Handle(JObject message)
     {
-        var email = await CreateMimeMessage(message, MessageContext.Current);
+        using var email = await CreateMimeMessage(message, MessageContext.Current);
         await SendEmail(email);
     }
 
@@ -81,11 +93,11 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         return email;
     }
 
-    private ValueTask<string> GenerateBodyHtml(JObject message, IMessageContext? messageContext)
+    private async ValueTask<string> GenerateBodyHtml(JObject message, IMessageContext? messageContext)
     {
         var model = new
         {
-            MessageJson = message.ToString(Formatting.Indented).ReplaceLineEndings("\r\n"),
+            MessageJson = message.ToString(Formatting.Indented),
             MessageHeaders = (messageContext
                 ?.Headers
                 ?.OrderBy(x => x.Key) ?? Enumerable.Empty<KeyValuePair<string, string>>())
@@ -96,10 +108,10 @@ public class EmailErrorHandler : IHandleMessages<JObject>
 
         var templateOptions = new TemplateOptions()
         {
-            MemberAccessStrategy = UnsafeMemberAccessStrategy.Instance
+            MemberAccessStrategy = UnsafeMemberAccessStrategy.Instance,
         };
         var templateContext = new TemplateContext(model, templateOptions);
-        return _template.RenderAsync(templateContext, HtmlEncoder.Default);
+        return await _template.RenderAsync(templateContext, HtmlEncoder.Default);
     }
 
     private async Task SendEmail(MimeMessage email)

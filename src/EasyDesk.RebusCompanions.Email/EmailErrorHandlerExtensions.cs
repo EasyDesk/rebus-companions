@@ -20,37 +20,47 @@ public static class EmailErrorHandlerExtensions
         var credentialsSection = emailConfigSection.GetSectionAsOption("Credentials");
         var fromSection = emailConfigSection.RequireSection("From");
 
-        var settings = new EmailErrorHandlerSettings(
-            Host: emailConfigSection.RequireValue<string>("Host"),
-            Port: emailConfigSection.RequireValue<int>("Port"),
-            UseSsl: emailConfigSection.GetValueAsOption<bool>("UseSsl").OrElse(true),
-            Credentials: credentialsSection
-                .Map(s => new EmailErrorHandlerCredentials(
-                    User: s.RequireValue<string>("User"),
-                    Password: s.RequireValue<string>("Password")))
+        var settings = new EmailErrorHandlerSettings
+        {
+            Host = emailConfigSection.RequireValue<string>("Host"),
+            Port = emailConfigSection.RequireValue<int>("Port"),
+            UseSsl = emailConfigSection.GetValueAsOption<bool>("UseSsl").OrElse(true),
+            Credentials = credentialsSection
+                .Map(s => new EmailErrorHandlerCredentials
+                {
+                    User = s.RequireValue<string>("User"),
+                    Password = s.RequireValue<string>("Password"),
+                })
                 .Filter(cred => !(string.IsNullOrEmpty(cred.User) && string.IsNullOrEmpty(cred.Password))),
-            From: new MailboxAddress(
+            From = new MailboxAddress(
                 name: fromSection.GetValueAsOption<string>("Name").OrElseNull(),
                 address: fromSection.RequireValue<string>("Address")),
-            To: emailConfigSection
+            To = emailConfigSection
                 .RequireValue<IEnumerable<string>>("To")
                 .Select(x => new MailboxAddress(null, x))
                 .Cast<InternetAddress>()
-                .ToImmutableHashSet());
+                .ToImmutableHashSet(),
+        };
 
         services.AddSingleton(settings);
 
-        var parser = new FluidParser();
         var rawTemplate = emailConfigSection
             .GetValueAsOption<string>("RawBodyTemplate")
             .OrElse(EmailErrorHandler.DefaultBodyTemplate);
-        var template = parser.Parse(rawTemplate);
 
-        services.AddTransient<IHandleMessages<JObject>>(sp => new EmailErrorHandler(
+        services.AddSingleton<IHandleMessages<JObject>>(sp => CreateEmailErrorHandler(
             sp.GetRequiredService<IClock>(),
             sp.GetRequiredService<EmailErrorHandlerSettings>(),
-            template));
+            rawTemplate));
 
         return services;
+    }
+
+    public static EmailErrorHandler CreateEmailErrorHandler(IClock clock, EmailErrorHandlerSettings settings, string? rawTemplate = null)
+    {
+        var parser = new FluidParser();
+        var template = parser.Parse(rawTemplate ?? EmailErrorHandler.DefaultBodyTemplate);
+
+        return new EmailErrorHandler(clock, settings, template);
     }
 }
