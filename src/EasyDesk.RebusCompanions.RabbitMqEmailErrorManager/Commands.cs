@@ -1,8 +1,9 @@
 ﻿using EasyDesk.Commons;
 using EasyDesk.Commons.Options;
 using Mono.Options;
-using Newtonsoft.Json.Linq;
 using Rebus.Handlers;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace EasyDesk.RebusCompanions.RabbitMqEmailErrorManager;
 
@@ -22,9 +23,9 @@ public static class Commands
         {
             await using (var scope = host.Services.CreateAsyncScope())
             {
-                var json = JObject.FromObject(doSmokeTest.Value) ?? throw new InvalidOperationException($"{doSmokeTest.Value.Message} can't be serialized.");
+                var json = JsonSerializer.SerializeToNode(doSmokeTest.Value) ?? throw new InvalidOperationException($"{doSmokeTest.Value.Message} can't be serialized.");
 
-                var errorHandler = scope.ServiceProvider.GetRequiredService<IHandleMessages<JObject>>();
+                var errorHandler = scope.ServiceProvider.GetRequiredService<IHandleMessages<JsonNode>>();
                 await errorHandler.Handle(json);
             }
         }

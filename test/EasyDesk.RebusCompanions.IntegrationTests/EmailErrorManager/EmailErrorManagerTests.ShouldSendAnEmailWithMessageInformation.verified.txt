@@ -14,7 +14,7 @@ A message was delivered to the error queue at timestamp 2025-01-01T16:00:00Z.
 <section>
     <h2>Body</h2>
     <pre>
-{&#xD;&#xA;  &quot;Value&quot;: 1,&#xD;&#xA;  &quot;Text&quot;: &quot;Hello world&quot;&#xD;&#xA;}
+{&#xA;  &quot;Value&quot;: 1,&#xA;  &quot;Text&quot;: &quot;Hello world&quot;&#xA;}
     </pre>
 </section>
 

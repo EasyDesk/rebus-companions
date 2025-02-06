@@ -4,10 +4,10 @@ using Fluid;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MimeKit;
-using Newtonsoft.Json.Linq;
 using NodaTime;
 using Rebus.Handlers;
 using System.Collections.Immutable;
+using System.Text.Json.Nodes;
 
 namespace EasyDesk.RebusCompanions.Email;
 
@@ -48,7 +48,7 @@ public static class EmailErrorHandlerExtensions
             .GetValueAsOption<string>("RawBodyTemplate")
             .OrElse(EmailErrorHandler.DefaultBodyTemplate);
 
-        services.AddSingleton<IHandleMessages<JObject>>(sp => CreateEmailErrorHandler(
+        services.AddSingleton<IHandleMessages<JsonNode>>(sp => CreateEmailErrorHandler(
             sp.GetRequiredService<IClock>(),
             sp.GetRequiredService<EmailErrorHandlerSettings>(),
             rawTemplate));

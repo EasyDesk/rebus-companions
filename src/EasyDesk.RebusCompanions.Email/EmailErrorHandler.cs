@@ -4,13 +4,12 @@ using Fluid;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using NodaTime;
 using Rebus.Handlers;
 using Rebus.Pipeline;
 using System.Collections.Immutable;
 using System.Text.Encodings.Web;
+using System.Text.Json.Nodes;
 
 namespace EasyDesk.RebusCompanions.Email;
 
@@ -36,7 +35,7 @@ public record EmailErrorHandlerCredentials
     public required string Password { get; init; }
 }
 
-public class EmailErrorHandler : IHandleMessages<JObject>
+public class EmailErrorHandler : IHandleMessages<JsonNode>
 {
     public const string DefaultBodyTemplate = """
         <h1>Message delivered to error queue</h1>
@@ -72,13 +71,13 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         _settings = settings;
     }
 
-    public async Task Handle(JObject message)
+    public async Task Handle(JsonNode message)
     {
         using var email = await CreateMimeMessage(message, MessageContext.Current);
         await SendEmail(email);
     }
 
-    private async Task<MimeMessage> CreateMimeMessage(JObject message, IMessageContext? messageContext)
+    private async Task<MimeMessage> CreateMimeMessage(JsonNode message, IMessageContext? messageContext)
     {
         var bodyBuilder = new BodyBuilder()
         {
@@ -93,11 +92,15 @@ public class EmailErrorHandler : IHandleMessages<JObject>
         return email;
     }
 
-    private async ValueTask<string> GenerateBodyHtml(JObject message, IMessageContext? messageContext)
+    private async ValueTask<string> GenerateBodyHtml(JsonNode message, IMessageContext? messageContext)
     {
         var model = new
         {
-            MessageJson = message.ToString(Formatting.Indented),
+            MessageJson = message.ToJsonString(new()
+            {
+                WriteIndented = true,
+                NewLine = "\n",
+            }),
             MessageHeaders = (messageContext
                 ?.Headers
                 ?.OrderBy(x => x.Key) ?? Enumerable.Empty<KeyValuePair<string, string>>())

@@ -4,9 +4,9 @@
     "net9.0": {
       "EasyDesk.Commons": {
         "type": "Direct",
-        "requested": "[0.148.1, )",
-        "resolved": "0.148.1",
-        "contentHash": "4FEO133VFurxhzbrQj1CbMkIJhNVSgjZ9r3IGmBxbaUiyo27pErWMCcapS4FKHxDQN8hP6wZKo1gVImnLNuv+A=="
+        "requested": "[0.148.2, )",
+        "resolved": "0.148.2",
+        "contentHash": "bw9E0zRCRTJbXYS/8uCdDxpw3YWnDCwERnaS4iWElvvdZ/7mxKV+DhCUp42/rrXTAMturVgnPtAH6jPdPDbMRQ=="
       },
       "Microsoft.Extensions.Hosting": {
         "type": "Direct",

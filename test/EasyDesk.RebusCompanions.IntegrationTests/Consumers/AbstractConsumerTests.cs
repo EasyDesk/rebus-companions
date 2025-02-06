@@ -1,9 +1,9 @@
 ﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
 using EasyDesk.RebusCompanions.Core.Consumer;
-using Newtonsoft.Json.Linq;
 using Rebus.Activation;
 using Rebus.Handlers;
 using Rebus.Routing.TypeBased;
+using System.Text.Json.Nodes;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Consumers;
 
@@ -26,7 +26,7 @@ public abstract class AbstractConsumerTests : AbstractRebusTest, IDisposable
 
     protected ITestBusEndpoint Sender { get; }
 
-    protected abstract IHandleMessages<JObject> GetHandler();
+    protected abstract IHandleMessages<JsonNode> GetHandler();
 
     public virtual void Dispose()
     {

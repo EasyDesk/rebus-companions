@@ -4,8 +4,8 @@ using EasyDesk.RebusCompanions.Email;
 using EasyDesk.RebusCompanions.IntegrationTests.Consumers;
 using EasyDesk.RebusCompanions.IntegrationTests.Maildev;
 using MimeKit;
-using Newtonsoft.Json.Linq;
 using Rebus.Handlers;
+using System.Text.Json.Nodes;
 using static EasyDesk.Commons.StaticImports;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.EmailErrorManager;
@@ -21,7 +21,7 @@ public class EmailErrorManagerTests : AbstractConsumerTests, IClassFixture<Maild
         _maildev = maildev;
     }
 
-    protected override IHandleMessages<JObject> GetHandler() => EmailErrorHandlerExtensions.CreateEmailErrorHandler(
+    protected override IHandleMessages<JsonNode> GetHandler() => EmailErrorHandlerExtensions.CreateEmailErrorHandler(
         Clock,
         new EmailErrorHandlerSettings
         {

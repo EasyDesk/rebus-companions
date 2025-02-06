@@ -20,6 +20,6 @@ public class RebusConsumer : RebusProcess
     protected override void ConfigureRebusBus(RebusConfigurer configurer)
     {
         configurer
-            .Serialization(s => s.AlwaysDeserializeAsJObject());
+            .Serialization(s => s.AlwaysDeserializeAnyObject());
     }
 }

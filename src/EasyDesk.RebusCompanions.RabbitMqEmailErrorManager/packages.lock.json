@@ -92,15 +92,15 @@
       },
       "EasyDesk.Commons": {
         "type": "Transitive",
-        "resolved": "0.148.1",
-        "contentHash": "4FEO133VFurxhzbrQj1CbMkIJhNVSgjZ9r3IGmBxbaUiyo27pErWMCcapS4FKHxDQN8hP6wZKo1gVImnLNuv+A=="
+        "resolved": "0.148.2",
+        "contentHash": "bw9E0zRCRTJbXYS/8uCdDxpw3YWnDCwERnaS4iWElvvdZ/7mxKV+DhCUp42/rrXTAMturVgnPtAH6jPdPDbMRQ=="
       },
       "EasyDesk.Extensions.Configuration": {
         "type": "Transitive",
-        "resolved": "0.148.1",
-        "contentHash": "+E9GVbZun+Zo/QqHAbU9striJzZdBtlM5Li87bST+IrDZ/BE62w5okoS5drq3nQCRKAMprqAtZ10fih96x8RSw==",
+        "resolved": "0.148.2",
+        "contentHash": "27thOAJ9KQbwEprzMn4L9q3OYqciPAUhVVhfIj/w4DLMaX5USZ1vaXiJ8iPsrQ4SnTBJja9dXvLoftAS0kDxfg==",
         "dependencies": {
-          "EasyDesk.Commons": "0.148.1",
+          "EasyDesk.Commons": "0.148.2",
           "Microsoft.Extensions.Configuration.Binder": "9.0.0"
         }
       },
@@ -452,7 +452,7 @@
       "easydesk.rebuscompanions.core": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Commons": "[0.148.1, )",
+          "EasyDesk.Commons": "[0.148.2, )",
           "Microsoft.Extensions.Hosting": "[9.0.1, )",
           "NodaTime": "[3.2.1, )",
           "Rebus": "[8.7.1, )",
@@ -462,7 +462,7 @@
       "easydesk.rebuscompanions.email": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Extensions.Configuration": "[0.148.1, )",
+          "EasyDesk.Extensions.Configuration": "[0.148.2, )",
           "EasyDesk.RebusCompanions.Core": "[1.0.0, )",
           "Fluid.Core": "[2.19.0, )",
           "MailKit": "[4.10.0, )"

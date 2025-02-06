@@ -25,8 +25,8 @@
       },
       "EasyDesk.Commons": {
         "type": "Transitive",
-        "resolved": "0.148.1",
-        "contentHash": "4FEO133VFurxhzbrQj1CbMkIJhNVSgjZ9r3IGmBxbaUiyo27pErWMCcapS4FKHxDQN8hP6wZKo1gVImnLNuv+A=="
+        "resolved": "0.148.2",
+        "contentHash": "bw9E0zRCRTJbXYS/8uCdDxpw3YWnDCwERnaS4iWElvvdZ/7mxKV+DhCUp42/rrXTAMturVgnPtAH6jPdPDbMRQ=="
       },
       "Microsoft.EntityFrameworkCore.Abstractions": {
         "type": "Transitive",
@@ -378,7 +378,7 @@
       "easydesk.rebuscompanions.core": {
         "type": "Project",
         "dependencies": {
-          "EasyDesk.Commons": "[0.148.1, )",
+          "EasyDesk.Commons": "[0.148.2, )",
           "Microsoft.Extensions.Hosting": "[9.0.1, )",
           "NodaTime": "[3.2.1, )",
           "Rebus": "[8.7.1, )",
