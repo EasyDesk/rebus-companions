@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.148.2" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.150.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
     <PackageReference Include="Rebus.Microsoft.Extensions.Logging" Version="5.1.0" />
     <PackageReference Include="Rebus.RabbitMq" Version="10.0.0" />
