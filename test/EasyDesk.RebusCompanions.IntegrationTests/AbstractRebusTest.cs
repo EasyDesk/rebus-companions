@@ -1,6 +1,6 @@
 ﻿using EasyDesk.CleanArchitecture.Testing.Integration.Bus;
 using EasyDesk.CleanArchitecture.Testing.Integration.Bus.Rebus;
-using EasyDesk.CleanArchitecture.Testing.Unit.Commons;
+using EasyDesk.CleanArchitecture.Testing.Integration.Multitenancy;
 using EasyDesk.RebusCompanions.Core.Config;
 using NodaTime;
 using NodaTime.Testing;
@@ -46,7 +46,7 @@ public abstract class AbstractRebusTest
                 Configuration.Apply(rebus, endpoint);
                 configure?.Invoke(rebus);
             },
-            new TestTenantManager(None),
+            new TestTenantManager(new(None)),
             defaultTimeout);
     }
 }

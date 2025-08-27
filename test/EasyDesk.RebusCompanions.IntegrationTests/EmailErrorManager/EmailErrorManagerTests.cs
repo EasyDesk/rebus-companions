@@ -10,7 +10,7 @@ using static EasyDesk.Commons.StaticImports;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.EmailErrorManager;
 
-public class EmailErrorManagerTests : AbstractConsumerTests, IClassFixture<MaildevFixture>, IAsyncLifetime
+public sealed class EmailErrorManagerTests : AbstractConsumerTests, IClassFixture<MaildevFixture>, IAsyncLifetime
 {
     public record Command(int Value, string Text) : ICommand;
 
@@ -53,7 +53,7 @@ public class EmailErrorManagerTests : AbstractConsumerTests, IClassFixture<Maild
         await Verify(emails).ScrubInlineGuids();
     }
 
-    public Task InitializeAsync() => Task.CompletedTask;
+    public ValueTask InitializeAsync() => ValueTask.CompletedTask;
 
-    public Task DisposeAsync() => _maildev.Reset();
+    public async ValueTask DisposeAsync() => await _maildev.Reset();
 }

@@ -8,14 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.151.4" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
+    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.161.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="Rebus.Microsoft.Extensions.Logging" Version="5.1.0" />
-    <PackageReference Include="Rebus.RabbitMq" Version="10.0.0" />
+    <PackageReference Include="Rebus.RabbitMq" Version="10.0.2" />
     <PackageReference Include="Rebus.PostgreSql" Version="9.1.1" />
-    <PackageReference Include="Rebus.ServiceProvider" Version="10.3.0" />
+    <PackageReference Include="Rebus.ServiceProvider" Version="10.5.0" />
   </ItemGroup>
 
   <ItemGroup>

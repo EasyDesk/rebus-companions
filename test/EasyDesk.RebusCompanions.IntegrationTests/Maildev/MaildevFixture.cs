@@ -4,7 +4,7 @@ using EasyDesk.CleanArchitecture.Application.Json;
 
 namespace EasyDesk.RebusCompanions.IntegrationTests.Maildev;
 
-public class MaildevFixture : IAsyncLifetime
+public sealed class MaildevFixture : IAsyncLifetime
 {
     public const string User = "maildev-user";
     public const string Password = "maildev.123";
@@ -31,16 +31,17 @@ public class MaildevFixture : IAsyncLifetime
             .Build();
     }
 
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         await _maildevContainer.StartAsync();
         Client = new MaildevClient(new UriBuilder("http", "localhost", _maildevContainer.GetMappedPublicPort(1080)).Uri, c => JsonDefaults.ApplyDefaultConfiguration(c));
         Port = _maildevContainer.GetMappedPublicPort(1025);
     }
 
-    public async Task DisposeAsync()
+    public async ValueTask DisposeAsync()
     {
         await _maildevContainer.StopAsync();
+        await _maildevContainer.DisposeAsync();
     }
 
     public async Task Reset()

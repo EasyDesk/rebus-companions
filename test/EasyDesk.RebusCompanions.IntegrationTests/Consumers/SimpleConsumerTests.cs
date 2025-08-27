@@ -24,7 +24,7 @@ public sealed class SimpleConsumerTests : AbstractConsumerTests
     {
         var command = new Command(1);
         await Sender.Send(command);
-        await Task.Delay(500);
+        await Task.Delay(500, TestContext.Current.CancellationToken);
 
         var serializerOptions = new JsonSerializerOptions();
         await _handler.Received(1).Handle(Arg.Is<JsonNode>(o => o.Deserialize<Command>(serializerOptions) == command));

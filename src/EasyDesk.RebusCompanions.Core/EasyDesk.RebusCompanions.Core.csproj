@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Commons" Version="0.151.4" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
-    <PackageReference Include="NodaTime" Version="3.2.1" />
-    <PackageReference Include="Rebus" Version="8.7.1" />
-    <PackageReference Include="Rebus.ServiceProvider" Version="10.3.0" />
+    <PackageReference Include="EasyDesk.Commons" Version="0.161.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
+    <PackageReference Include="NodaTime" Version="3.2.2" />
+    <PackageReference Include="Rebus" Version="8.8.0" />
+    <PackageReference Include="Rebus.ServiceProvider" Version="10.5.0" />
   </ItemGroup>
 
 </Project>
