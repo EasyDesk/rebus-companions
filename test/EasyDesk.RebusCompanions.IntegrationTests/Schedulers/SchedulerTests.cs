@@ -49,7 +49,7 @@ public sealed class SchedulerTests : AbstractRebusTest, IAsyncDisposable
     }
 
     protected override void ConfigureRebus(RebusConfiguration configuration) =>
-        configuration.WithOptions(o => o.SetDueTimeoutsPollInteval(_pollInterval.ToTimeSpan()));
+        configuration.WithOptions(o => o.SetDueTimeoutsPollInterval(_pollInterval.ToTimeSpan()));
 
     [Fact]
     public async Task ShouldDeliverMessagesAfterTheGivenDelay()

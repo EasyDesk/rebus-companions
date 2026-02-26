@@ -16,9 +16,8 @@ public sealed class MaildevFixture : IAsyncLifetime
 
     public MaildevFixture()
     {
-        _maildevContainer = new ContainerBuilder()
+        _maildevContainer = new ContainerBuilder("maildev/maildev:2.1.0")
             .WithHostname("maildev")
-            .WithImage("maildev/maildev:2.1.0")
             .WithEnvironment(new Dictionary<string, string>()
             {
                 ["MAILDEV_IP"] = "::",
