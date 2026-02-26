@@ -13,7 +13,7 @@ jobs:
     name: Build
     uses: EasyDesk/workflows/.github/workflows/build.yml@v5
     with:
-      dotnet-version: 9.x
+      dotnet-version: 10.x
       warnings-as-errors: true
       integration-tests-project: test/EasyDesk.RebusCompanions.IntegrationTests
       additional-test-arguments: --logger 'GitHubActions'
