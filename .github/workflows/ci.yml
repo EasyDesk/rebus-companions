@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build
-    uses: EasyDesk/workflows/.github/workflows/build.yml@v5
+    uses: EasyDesk/workflows/.github/workflows/build.yml@v6
     with:
       dotnet-version: 10.x
       warnings-as-errors: true
@@ -35,7 +35,7 @@ jobs:
             image-name: rebus-scheduler-rabbitmq-sqlserver
           - dockerfile: src/EasyDesk.RebusCompanions.RabbitMqEmailErrorManager/Dockerfile
             image-name: rebus-error-manager-rabbitmq-email
-    uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v5
+    uses: EasyDesk/workflows/.github/workflows/docker-delivery.yml@v6
     with:
       dockerfile: ${{ matrix.dockerfile }}
       image-name: ${{ matrix.image-name }}
