@@ -16,7 +16,7 @@ jobs:
       dotnet-version: 10.x
       warnings-as-errors: true
       integration-tests-project: test/EasyDesk.RebusCompanions.IntegrationTests
-      additional-test-arguments: --logger 'GitHubActions'
+      additional-test-arguments: --report-github
       build-artifact-name: build-artifacts
       projects: |
         src/EasyDesk.RebusCompanions.Scheduler.RabbitMqPostgres
