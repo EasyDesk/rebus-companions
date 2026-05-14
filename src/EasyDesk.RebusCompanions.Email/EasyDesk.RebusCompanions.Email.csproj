@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.165.2" />
+    <PackageReference Include="EasyDesk.Extensions.Configuration" Version="0.166.2" />
     <PackageReference Include="Fluid.Core" Version="2.31.0" />
     <PackageReference Include="MailKit" Version="4.16.0" />
   </ItemGroup>

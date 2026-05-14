@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyDesk.Commons" Version="0.165.2" />
+    <PackageReference Include="EasyDesk.Commons" Version="0.166.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.8" />
     <PackageReference Include="NodaTime" Version="3.3.2" />
     <PackageReference Include="Rebus" Version="8.9.2" />
